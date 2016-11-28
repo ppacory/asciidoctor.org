@@ -9019,7 +9019,7 @@ Remember that when the options attribute is set, and you want the first row of t
 <h3 id="table-width"><a class="anchor" href="#table-width"></a>26.6. Table width</h3>
 <div class="paragraph">
 <p>By default, a table will stretch to fit the width of the page.
-To reduce the width of the table, set the <code>width</code> attribute in the table&#8217;s attribute list.
+To set it to a fixed width, set the <code>width</code> attribute in the table&#8217;s attribute list.
 The width is a percentage value ranging from 0 to 100.
 The <code>%</code> sign is optional.</p>
 </div>
@@ -9067,6 +9067,66 @@ The <code>%</code> sign is optional.</p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>You can also set the width based on the content (fit to content) by setting the <code>autowidth</code> option.</p>
+</div>
+<div class="listingblock">
+<div class="title">Table using autowidth</div>
+<div class="content">
+<pre class="nowrap">[%autowidth]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===</pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all">
+<caption class="title">Result: Table is sized to fit the longest content in each column</caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Column 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Column 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Column 3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 1, row 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 2, row 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 3, row 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 1, row 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 2, row 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 3, row 2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>width</code> takes precedence over <code>autowidth</code> if both are set.
+<code>width</code> works in the html and docbook backends, <code>autowidth</code> only works in the html backend.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="table-borders"><a class="anchor" href="#table-borders"></a>26.7. Table borders</h3>
@@ -24481,7 +24541,7 @@ This name is also used to build the full path to the custom converter templates.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-11-25 07:28:44 UTC
+Last updated 2016-11-28 00:57:07 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
