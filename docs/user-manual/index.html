@@ -8834,16 +8834,19 @@ epic sonnet.</div></td>
 <div class="sect2">
 <h3 id="header-row"><a class="anchor" href="#header-row"></a>26.4. Header row</h3>
 <div class="paragraph">
-<p>The first row of a table can be rendered as a header row with the <code>header</code> value.
-The header value is assigned by setting the <code>options</code> attribute or based on the table&#8217;s layout.</p>
+<p>The first row of a table is promoted to a header row if the <code>header</code> option is set (either explicitly or implicitly).</p>
 </div>
 <div class="paragraph">
-<p>The <code>options</code> attribute is set in the table&#8217;s attribute list and assigned the value <code>header</code> in the example below.</p>
+<p>You can enable the header option by adding the <code>header</code> keyword to the comma-separated list of values in the <code>options</code> attribute on the table.
+You can also enable the header option by adding the <code>%header</code> directive to the table style (the first positional attribute).</p>
+</div>
+<div class="paragraph">
+<p>In the example below, the table has an attribute list containing an <code>options</code> attribute that includes the <code>header</code> option.</p>
 </div>
 <div class="listingblock">
 <div class="title">Table with the header value assigned to the options attribute</div>
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[cols=&quot;2*&quot;, options=&quot;header&quot;]
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[cols=2*,options=&quot;header&quot;]
 |===
 |Name of Column 1
 |Name of Column 2
@@ -8880,7 +8883,7 @@ The header value is assigned by setting the <code>options</code> attribute or ba
 </tbody>
 </table>
 <div class="paragraph">
-<p>Alternatively, you can define the header row based on how you layout the table.
+<p>Alternately, you can define the header row based on how you layout the table.
 Asciidoctor use the following conventions to determine when the first row should become the header row:</p>
 </div>
 <div class="olist arabic">
@@ -8892,7 +8895,7 @@ Asciidoctor use the following conventions to determine when the first row should
 <p>The second line of content inside the table block delimiters is empty.</p>
 </li>
 <li>
-<p>The <code>options</code> attribute has not been specified in the block attributes.</p>
+<p>The <code>options</code> attribute has not been specified in the block attributes (prior to 1.5.5).</p>
 </li>
 </ol>
 </div>
@@ -8937,7 +8940,8 @@ Asciidoctor use the following conventions to determine when the first row should
 </tbody>
 </table>
 <div class="paragraph">
-<p>Notice that when the implicit method of assigning the header row is used, it is not necessary to set the <code>cols</code> attribute.</p>
+<p>Notice that when the implicit method of assigning the header row is used, it&#8217;s not necessary to set the <code>cols</code> attribute.
+That&#8217;s because the number of columns are determined by the number of cells in the first line if the <code>cols</code> attribute is absent.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -8956,7 +8960,7 @@ Thus, if you rely on this convention to enable the header row, it&#8217;s advise
 <div class="sect2">
 <h3 id="footer-row"><a class="anchor" href="#footer-row"></a>26.5. Footer row</h3>
 <div class="paragraph">
-<p>The last row of a table can be styled as a footer by assigning the <code>footer</code> value to the <code>options</code> attribute.</p>
+<p>The last row of a table can be styled as a footer by adding the <code>footer</code> keyword to the <code>options</code> attribute.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9002,31 +9006,19 @@ Thus, if you rely on this convention to enable the header row, it&#8217;s advise
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Remember that when the options attribute is set, and you want the first row of the table to be displayed as a header, you must assign the header value.
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect2">
 <h3 id="table-width"><a class="anchor" href="#table-width"></a>26.6. Table width</h3>
 <div class="paragraph">
-<p>By default, a table will stretch to fit the width of the page.
-To set it to a fixed width, set the <code>width</code> attribute in the table&#8217;s attribute list.
-The width is a percentage value ranging from 0 to 100.
+<p>By default, a table will span the width of the content area.
+To constrain the width of the table to a fixed value, set the <code>width</code> attribute in the table&#8217;s attribute list.
+The width is an integer percentage value ranging from 1 to 100.
 The <code>%</code> sign is optional.</p>
 </div>
 <div class="listingblock">
-<div class="title">Table with width set to 65%</div>
+<div class="title">Table with width set to 75%</div>
 <div class="content">
-<pre class="nowrap">[width=65]
+<pre class="nowrap">[width=75%]
 |===
 |Name of Column 1 |Name of Column 2 |Name of Column 3
 
@@ -9040,8 +9032,8 @@ The <code>%</code> sign is optional.</p>
 |===</pre>
 </div>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 65%;">
-<caption class="title">Result: Table rendered with a width of 65%</caption>
+<table class="tableblock frame-all grid-all" style="width: 75%;">
+<caption class="title">Result: Table rendered with a width of 75%</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -9068,7 +9060,8 @@ The <code>%</code> sign is optional.</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p>You can also set the width based on the content (fit to content) by setting the <code>autowidth</code> option.</p>
+<p>Alternately, you can make the width fit the content by setting the <code>autowidth</code> option.
+The columns inherit this setting, so individual columns will also be sized according to the content.</p>
 </div>
 <div class="listingblock">
 <div class="title">Table using autowidth</div>
@@ -9088,7 +9081,7 @@ The <code>%</code> sign is optional.</p>
 </div>
 </div>
 <table class="tableblock frame-all grid-all">
-<caption class="title">Result: Table is sized to fit the longest content in each column</caption>
+<caption class="title">Result: The width of the table is sized to accomodate the automatic column widths</caption>
 <colgroup>
 <col>
 <col>
@@ -9112,6 +9105,63 @@ The <code>%</code> sign is optional.</p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>If you want each column to have an automatic width, but want the table to span the width of the content area, add the <code>spread</code> role to the table (or, as of 1.5.5, set the <code>width</code> attribute to <code>100%</code>).</p>
+</div>
+<div class="listingblock">
+<div class="title">Full-width table with autowidth columns</div>
+<div class="content">
+<pre class="nowrap">[%autowidth.spread]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===</pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Result: Columns are sized to the content, but table spans the width of the page</caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Column 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Column 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Column 3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 1, row 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 2, row 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 3, row 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 1, row 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 2, row 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell in column 3, row 2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The <code>autowidth</code> option is not recognized by the DocBook converter.
+</td>
+</tr>
+</table>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -9120,8 +9170,17 @@ The <code>%</code> sign is optional.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><code>width</code> takes precedence over <code>autowidth</code> if both are set.
-<code>width</code> works in the html and docbook backends, <code>autowidth</code> only works in the html backend.</p>
+<p>A design for enabling autowidth for individual columns is underway.
+(See <a href="https://github.com/asciidoctor/asciidoctor/issues/1844">issue #1844</a>).
+In the meantime, it&#8217;s still possible to apply a style to a column when using the <code>autowidth</code> option, as the following attibute list shows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[%autowidth.spread,cols=&quot;~h,~&quot;]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, the relative column widths are ignored.</p>
 </div>
 </td>
 </tr>
@@ -24541,7 +24600,7 @@ This name is also used to build the full path to the custom converter templates.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-11-28 00:57:07 UTC
+Last updated 2016-11-28 01:26:49 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
