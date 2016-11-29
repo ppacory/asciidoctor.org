@@ -848,10 +848,10 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#user-colophon">56. Colophon</a></li>
 <li><a href="#user-toc">57. Table of Contents</a>
 <ul class="sectlevel2">
-<li><a href="#left-or-right-column-layout">57.1. Left or Right Column Layout</a></li>
-<li><a href="#manual-placement">57.2. Manual Placement</a></li>
-<li><a href="#title-2">57.3. Title</a></li>
-<li><a href="#levels">57.4. Levels</a></li>
+<li><a href="#manual-placement">57.1. In-Document Placement</a></li>
+<li><a href="#left-or-right-column-layout">57.2. Side Column Placement</a></li>
+<li><a href="#user-toc-title">57.3. Title</a></li>
+<li><a href="#user-toc-levels">57.4. Levels</a></li>
 <li><a href="#using-a-toc-with-embeddable-html">57.5. Using a TOC with Embeddable HTML</a></li>
 <li><a href="#table-of-contents-summary">57.6. Table of Contents Summary</a></li>
 </ul>
@@ -17793,13 +17793,13 @@ The printing and binding is by Ceres Lithographing, Inc., Ceres, Milky Way.</pre
 <h2 id="user-toc"><a class="anchor" href="#user-toc"></a>57. Table of Contents</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A table of contents (TOC) is a list of section and nested subsection titles that is generated when Asciidoctor processes a document.
-The TOC is inserted directly below the document&#8217;s title and author, titled <em>Table of Contents</em>, and lists the section 1 and section 2 level titles by default.</p>
+<p>A table of contents (TOC) is an index of section and subsection titles that can be automatically generated from the document&#8217;s structure when converting a document with Asciidoctor.</p>
 </div>
 <div class="paragraph">
-<p>When the <code>docbook</code> converter is used, a TOC is inserted by default.
-To include a TOC when using the <code>html</code> or a custom backend, you must set the <code>toc</code> attribute.
-The toc attribute can be specified via the command line (<code>-a toc</code>) or in the document&#8217;s header (<code>:toc:</code>)</p>
+<p>To enable the auto-generated TOC, you must set the <code>toc</code> attribute.</p>
+</div>
+<div class="paragraph">
+<p>The <code>toc</code> attribute can be specified via the command line (<code>-a toc</code>),</p>
 </div>
 <div class="listingblock">
 <div class="title">TOC enabled via the CLI</div>
@@ -17807,8 +17807,11 @@ The toc attribute can be specified via the command line (<code>-a toc</code>) or
 <pre class="nowrap">$ asciidoctor -a toc adventure.adoc</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>or in the document header (<code>:toc:</code>).</p>
+</div>
 <div class="listingblock">
-<div class="title">TOC enabled via the document&#8217;s header</div>
+<div class="title">TOC enabled via the document header</div>
 <div class="content">
 <pre class="nowrap">= The Dangerous and Thrilling Documentation Chronicles
 Kismet Chameleon
@@ -17822,7 +17825,7 @@ The river rages through the cavern, rattling its content...</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When the <code>toc</code> attribute is set, a TOC is inserted directly below the title and author in the rendered document.</p>
+<p>When no other options are specified, the TOC is inserted directly below the document header (document title, author, and revision lines), it has the title <em>Table of Contents</em>, and contains section 1 and section 2 level titles only.</p>
 </div>
 <div class="exampleblock">
 <div class="title">Result: Setting the toc attribute</div>
@@ -17835,12 +17838,85 @@ The river rages through the cavern, rattling its content...</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Asciidoctor provides additional attributes to customize the placement, layout and title of the table of contents.</p>
+<p>Asciidoctor allows you to customize the layout, placement, and title of the table of contents.
+However, not all customizations are supported by all converters.
+See the <a href="#table-of-contents-summary">Table of Contents Summary</a> to find out which customizations are available to each backend.</p>
 </div>
 <div class="sect2">
-<h3 id="left-or-right-column-layout"><a class="anchor" href="#left-or-right-column-layout"></a>57.1. Left or Right Column Layout</h3>
+<h3 id="manual-placement"><a class="anchor" href="#manual-placement"></a>57.1. In-Document Placement</h3>
 <div class="paragraph">
-<p>The TOC can be positioned in a column to the left or right of the document&#8217;s content by assigning the <code>left</code> or <code>right</code> value to the toc attribute.
+<p><code>toc</code> values of <code>auto</code>, <code>preamble</code>, and <code>macro</code> place the TOC in the main document area.</p>
+</div>
+<div class="paragraph">
+<p>When the value of <code>toc</code> attribute is unspecified or <code>auto</code>, the TOC is inserted directly below the document header (document title, author and revision lines).</p>
+</div>
+<div class="paragraph">
+<p>When <code>toc</code> is set to <code>preamble</code>, the TOC is placed immediately below the preamble.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+When using the preamble placement, the TOC will not appear if your document does not have a <a href="#doc-preamble">preamble</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To place the TOC anywhere else in the document, set the <code>toc</code> attribute to <code>macro</code>.
+Then, put the <code>toc::[]</code> block macro where you want the TOC to appear.
+The <code>toc::[]</code> macro should appear at most once in any document.</p>
+</div>
+<div class="paragraph">
+<p>If <code>toc</code> is not set to <code>macro</code>, any <code>toc::[]</code> macros will be ignored.</p>
+</div>
+<div class="listingblock">
+<div class="title">Setting toc value to macro and using the <code>toc::[]</code> macro</div>
+<div class="content">
+<pre class="nowrap">= The Dangerous and Thrilling Documentation Chronicles
+Kismet Chameleon
+:toc: macro <i class="conum" data-value="1"></i><b>(1)</b>
+
+This journey begins on a bleary...
+
+== Cavern Glow
+
+toc::[] <i class="conum" data-value="2"></i><b>(2)</b>
+
+The river rages through the cavern, rattling its content...</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The toc attribute must be set to macro in order to enable the use of the <code>toc::[]</code> macro.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>In this example, the <code>toc::[]</code> macro is placed below the first section&#8217;s title, indicating that this is the location where the TOC will be displayed once the document is rendered.</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="title">Result: Setting toc value to macro and using the <code>toc::[]</code> macro</div>
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="/images/toc-macro.png" alt="Manual placement of the table of contents">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="left-or-right-column-layout"><a class="anchor" href="#left-or-right-column-layout"></a>57.2. Side Column Placement</h3>
+<div class="paragraph">
+<p>When converting to HTML, the TOC can be positioned in a column to the left or right of the main content by assigning the <code>left</code> or <code>right</code> value to the <code>toc</code> attribute.
+This positioning is achieved using CSS (so it depends on support from the stylesheet).
 The column is scrollable and fixed.</p>
 </div>
 <div class="listingblock">
@@ -17881,72 +17957,7 @@ Crawling through the twisted understory...</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="manual-placement"><a class="anchor" href="#manual-placement"></a>57.2. Manual Placement</h3>
-<div class="paragraph">
-<p>The <code>macro</code> value on the toc attribute allows you to place the TOC anywhere in your document.
-To control where the TOC is rendered in your document, set the toc attribute to <code>macro</code>.
-Then, within the body of your document, use the <code>toc::[]</code> block macro to indicate the TOC&#8217;s location.</p>
-</div>
-<div class="listingblock">
-<div class="title">Setting toc value to macro and using the <code>toc::[]</code> macro</div>
-<div class="content">
-<pre class="nowrap">= The Dangerous and Thrilling Documentation Chronicles
-Kismet Chameleon
-:toc: macro <i class="conum" data-value="1"></i><b>(1)</b>
-
-This journey begins on a bleary...
-
-== Cavern Glow
-
-toc::[] <i class="conum" data-value="2"></i><b>(2)</b>
-
-The river rages through the cavern, rattling its content...</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The toc attribute must be set to macro in order to enable the use of the <code>toc::[]</code> macro.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>In this example, the <code>toc::[]</code> macro is placed below the first section&#8217;s title, indicating that this is the location where the TOC will be displayed once the document is rendered.</td>
-</tr>
-</table>
-</div>
-<div class="exampleblock">
-<div class="title">Result: Setting toc value to macro and using the <code>toc::[]</code> macro</div>
-<div class="content">
-<div class="imageblock">
-<div class="content">
-<img src="/images/toc-macro.png" alt="Manual placement of the table of contents">
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Asciidoctor also has a <code>toc-placement</code> attribute, that when set with a value of <code>preamble</code> places the TOC below the preamble.
-You do not need to include the <code>toc::[]</code> block macro in the document when using the preamble value.</p>
-</div>
-<div class="paragraph">
-<p>If you set toc-placement but don&#8217;t assign it a value, the TOC will be placed in the document&#8217;s header by default.</p>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-The <code>toc-placement</code> and <code>toc-position</code> attributes are mutually exclusive.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="title-2"><a class="anchor" href="#title-2"></a>57.3. Title</h3>
+<h3 id="user-toc-title"><a class="anchor" href="#user-toc-title"></a>57.3. Title</h3>
 <div class="paragraph">
 <p>The <code>toc-title</code> attribute allows you to change the title of the TOC.</p>
 </div>
@@ -17989,10 +18000,10 @@ The river rages through the cavern, rattling its content...</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="levels"><a class="anchor" href="#levels"></a>57.4. Levels</h3>
+<h3 id="user-toc-levels"><a class="anchor" href="#user-toc-levels"></a>57.4. Levels</h3>
 <div class="paragraph">
 <p>By default, the TOC will display level 1 and level 2 section titles.
-You can set a different level with the <code>toclevels</code> attribute.</p>
+You can set a different depth with the <code>toclevels</code> attribute.</p>
 </div>
 <div class="listingblock">
 <div class="title">Defining a new toclevels value</div>
@@ -18025,11 +18036,12 @@ Crawling through the twisted understory...</pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The toc attribute must be set in order to use toclevels.</td>
+<td>The <code>toc</code> attribute must be set in order to use <code>toclevels</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>toclevels is set and assigned the value <code>4</code> in the document&#8217;s header. The TOC will list the titles of the section 1, 2, 3, and 4 levels when the document is rendered.</td>
+<td><code>toclevels</code> is set and assigned the value <code>4</code> in the document&#8217;s header.
+The TOC will list the titles of the section 1, 2, 3, and 4 levels when the document is rendered.</td>
 </tr>
 </table>
 </div>
@@ -18047,10 +18059,13 @@ Crawling through the twisted understory...</pre>
 <div class="sect2">
 <h3 id="using-a-toc-with-embeddable-html"><a class="anchor" href="#using-a-toc-with-embeddable-html"></a>57.5. Using a TOC with Embeddable HTML</h3>
 <div class="paragraph">
-<p>When AsciiDoc is converted to embeddable HTML (i.e., the <code>header_footer</code> option is <code>false</code>), there are only two valid values for the <code>toc</code> attribute:</p>
+<p>When AsciiDoc is converted to embeddable HTML (i.e., the <code>header_footer</code> option is <code>false</code>), there are only three valid values for the <code>toc</code> attribute:</p>
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p>auto (or unspecified value)</p>
+</li>
 <li>
 <p>preamble</p>
 </li>
@@ -18082,21 +18097,17 @@ Crawling through the twisted understory...</pre>
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-The sidebar TOC (left or right) isn&#8217;t available in this mode.
-That&#8217;s because the embeddable HTML doesn&#8217;t have the outer framing necessary to support a sidebar TOC.
+The side column placement (left or right) isn&#8217;t available in this mode.
+That&#8217;s because the embeddable HTML doesn&#8217;t have the outer framing (or the CSS) necessary to support a side column TOC.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>The <a href="#manual-placement">macro (aka manual) placement</a> requires the use of the <code>toc::[]</code> macro somewhere in the document.
-The preamble placement only works if your document has a preamble (otherwise, there is no slot for it).</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="table-of-contents-summary"><a class="anchor" href="#table-of-contents-summary"></a>57.6. Table of Contents Summary</h3>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table of contents attributes and values</caption>
+<caption class="title">Table of contents attributes and allowed values</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 14.2857%;">
@@ -18115,14 +18126,33 @@ The preamble placement only works if your document has a preamble (otherwise, th
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>toc</code></p></td>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock"><code>toc</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">auto, left, right, macro, preamble</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:toc: left</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not set by default.
+Defaults to <code>auto</code> if value is unspecified.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">html</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auto, macro, preamble</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:toc: macro</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not set by default.
+Defaults to <code>auto</code> if value is unspecified.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">html (embeddable)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auto</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>:toc:</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Defaults to <code>auto</code> if value is blank.
-When <code>header_footer</code> is disabled, only <code>macro</code> and <code>preamble</code> are recognized.
-Use <code>macro</code> in order to use the <code>toc::[]</code> block macro in the document body.
-DocBook converter sets <code>toc</code> by default.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">html, docbook, pdf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not set by default.
+The table of contents is placed after the title page (See <a href="https://github.com/asciidoctor/asciidoctor-pdf/issues/233">issue #233</a> for developments).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pdf</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auto</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:toc:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not set by default.
+The placement and styling of the table of contents is determined by the DocBook toolchain configuration.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">docbook</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>toclevels</code></p></td>
@@ -18133,28 +18163,10 @@ DocBook converter sets <code>toc</code> by default.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>toc-title</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;user defined&gt;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:toc-title: Rocking the Table</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;text&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:toc-title: Contents</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Default value is <em>Table of Contents</em>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">html, pdf</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>toc-placement</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">auto, preamble, macro</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:toc-placement: preamble</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Should be treated as read-only.</em>
-Use <code>toc</code> attribute to set.
-Default value is <code>auto</code> when <code>toc</code> is specified without a value.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">html</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>toc-position</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">left, right</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:toc-position: right</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Should be treated as read-only.</em>
-Use <code>toc</code> attribute to set.
-Default value is <code>header</code> when <code>toc</code> is specified without a value.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">html</p></td>
 </tr>
 </tbody>
 </table>
@@ -22158,11 +22170,14 @@ Asciidoctor sets <code>asciidoctor</code> instead.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>toc2</code></p></td>
-<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock"><code>toc</code></p></td>
-<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Combined in a single attribute, see <a href="#user-toc">Table of Contents</a>.</p></td>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock"><code>toc</code></p></td>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Combined in a single attribute, see <a href="#user-toc">Table of Contents</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>toc-placement</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>toc-position</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>options="pgwide"</code></p></td>
@@ -23474,15 +23489,6 @@ Also used as a fallback when the document title is not specified.
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-toc">Table of Contents</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">toc-placement</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Location where table of contents is inserted.
-Should be treated as read-only.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Based on value of <code>toc</code> attribute.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">auto, preamble, macro</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-toc">Table of Contents</a></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">fragment</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Hints to parser that document is a fragment and it should not enforce proper section nesting.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
@@ -24600,7 +24606,7 @@ This name is also used to build the full path to the custom converter templates.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-11-28 01:55:05 UTC
+Last updated 2016-11-29 05:30:23 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
