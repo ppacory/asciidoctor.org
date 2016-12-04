@@ -809,203 +809,189 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#callout-icons">50.2. Callout Icons</a></li>
 </ul>
 </li>
-<li><a href="#include-directive-2">51. Include Directive</a>
+<li><a href="#conditional-preprocessor-directives">51. Conditional Preprocessor Directives</a>
 <ul class="sectlevel2">
-<li><a href="#include-basics">51.1. Basics</a></li>
-<li><a href="#include-resolution">51.2. File resolution</a></li>
-<li><a href="#include-partitioning">51.3. Partitioning large documents and using leveloffset</a></li>
-<li><a href="#include-nonasciidoc">51.4. AsciiDoc vs non-AsciiDoc files</a></li>
-<li><a href="#selecting-parts-of-a-document-to-include">51.5. Selecting Parts of a Document to Include</a></li>
-<li><a href="#relative-leveloffset">51.6. Relative Leveloffset</a></li>
-<li><a href="#normalizing-block-indentation">51.7. Normalizing Block Indentation</a></li>
-<li><a href="#include-files-relative-to-a-common-source-directory">51.8. Include Files Relative to a Common Source Directory</a></li>
-<li><a href="#include-content-from-a-uri">51.9. Include Content from a URI</a></li>
-<li><a href="#caching-uri-content-2">51.10. Caching URI Content</a></li>
+<li><a href="#ifdef-directive">51.1. ifdef Directive</a></li>
+<li><a href="#ifndef-directive">51.2. ifndef Directive</a></li>
+<li><a href="#checking-multiple-attributes-ifdef-and-ifndef-only">51.3. Checking multiple attributes (ifdef and ifndef only)</a></li>
+<li><a href="#ifeval-directive">51.4. ifeval directive</a></li>
 </ul>
 </li>
-<li><a href="#conditional-preprocessor-directives">52. Conditional Preprocessor Directives</a>
+<li><a href="#docinfo-file">52. Docinfo File</a>
 <ul class="sectlevel2">
-<li><a href="#ifdef-directive">52.1. ifdef Directive</a></li>
-<li><a href="#ifndef-directive">52.2. ifndef Directive</a></li>
-<li><a href="#checking-multiple-attributes-ifdef-and-ifndef-only">52.3. Checking multiple attributes (ifdef and ifndef only)</a></li>
-<li><a href="#ifeval-directive">52.4. ifeval directive</a></li>
+<li><a href="#create-a-docinfo-file">52.1. Create a docinfo file</a></li>
+<li><a href="#docinfo-attributes-and-file-names">52.2. Docinfo attributes and file names</a></li>
+<li><a href="#footer-docinfo-files">52.3. Footer docinfo files</a></li>
+<li><a href="#attribute-substitution">52.4. Attribute substitution</a></li>
 </ul>
 </li>
-<li><a href="#docinfo-file">53. Docinfo File</a>
-<ul class="sectlevel2">
-<li><a href="#create-a-docinfo-file">53.1. Create a docinfo file</a></li>
-<li><a href="#docinfo-attributes-and-file-names">53.2. Docinfo attributes and file names</a></li>
-<li><a href="#footer-docinfo-files">53.3. Footer docinfo files</a></li>
-<li><a href="#attribute-substitution">53.4. Attribute substitution</a></li>
-</ul>
-</li>
-<li><a href="#counters">54. Counters</a></li>
+<li><a href="#counters">53. Counters</a></li>
 </ul>
 </li>
 <li><a href="#structuring-navigating-and-referencing-your-content">Structuring, Navigating, and Referencing Your Content</a>
 <ul class="sectlevel1">
-<li><a href="#title-page">55. Title Page</a></li>
-<li><a href="#user-colophon">56. Colophon</a></li>
-<li><a href="#user-toc">57. Table of Contents</a>
+<li><a href="#title-page">54. Title Page</a></li>
+<li><a href="#user-colophon">55. Colophon</a></li>
+<li><a href="#user-toc">56. Table of Contents</a>
 <ul class="sectlevel2">
-<li><a href="#manual-placement">57.1. In-Document Placement</a></li>
-<li><a href="#left-or-right-column-layout">57.2. Side Column Placement</a></li>
-<li><a href="#user-toc-title">57.3. Title</a></li>
-<li><a href="#user-toc-levels">57.4. Levels</a></li>
-<li><a href="#using-a-toc-with-embeddable-html">57.5. Using a TOC with Embeddable HTML</a></li>
-<li><a href="#table-of-contents-summary">57.6. Table of Contents Summary</a></li>
+<li><a href="#manual-placement">56.1. In-Document Placement</a></li>
+<li><a href="#left-or-right-column-layout">56.2. Side Column Placement</a></li>
+<li><a href="#user-toc-title">56.3. Title</a></li>
+<li><a href="#user-toc-levels">56.4. Levels</a></li>
+<li><a href="#using-a-toc-with-embeddable-html">56.5. Using a TOC with Embeddable HTML</a></li>
+<li><a href="#table-of-contents-summary">56.6. Table of Contents Summary</a></li>
 </ul>
 </li>
-<li><a href="#user-abstract">58. Abstract</a></li>
-<li><a href="#user-preface">59. Preface</a></li>
-<li><a href="#user-dedication">60. Dedication</a></li>
-<li><a href="#book-parts-and-chapters">61. Book Parts and Chapters</a></li>
-<li><a href="#user-appendix">62. Appendix</a></li>
-<li><a href="#user-glossary">63. Glossary</a></li>
-<li><a href="#user-biblio">64. Bibliography</a></li>
-<li><a href="#user-index">65. Index</a></li>
-<li><a href="#user-footnotes">66. Footnotes</a></li>
+<li><a href="#user-abstract">57. Abstract</a></li>
+<li><a href="#user-preface">58. Preface</a></li>
+<li><a href="#user-dedication">59. Dedication</a></li>
+<li><a href="#book-parts-and-chapters">60. Book Parts and Chapters</a></li>
+<li><a href="#user-appendix">61. Appendix</a></li>
+<li><a href="#user-glossary">62. Glossary</a></li>
+<li><a href="#user-biblio">63. Bibliography</a></li>
+<li><a href="#user-index">64. Index</a></li>
+<li><a href="#user-footnotes">65. Footnotes</a></li>
 </ul>
 </li>
 <li><a href="#processing-your-content">Processing Your Content</a>
 <ul class="sectlevel1">
-<li><a href="#selecting-an-output-format">67. Selecting an Output Format</a></li>
-<li><a href="#html">68. HTML</a>
+<li><a href="#selecting-an-output-format">66. Selecting an Output Format</a></li>
+<li><a href="#html">67. HTML</a>
 <ul class="sectlevel2">
-<li><a href="#using-the-command-line">68.1. Using the Command Line</a></li>
-<li><a href="#using-the-ruby-api-2">68.2. Using the Ruby API</a></li>
-<li><a href="#styling-the-html-with-css">68.3. Styling the HTML with CSS</a></li>
-<li><a href="#managing-images">68.4. Managing Images</a></li>
-<li><a href="#hl-css">68.5. CodeRay and Pygments Stylesheets</a></li>
+<li><a href="#using-the-command-line">67.1. Using the Command Line</a></li>
+<li><a href="#using-the-ruby-api-2">67.2. Using the Ruby API</a></li>
+<li><a href="#styling-the-html-with-css">67.3. Styling the HTML with CSS</a></li>
+<li><a href="#managing-images">67.4. Managing Images</a></li>
+<li><a href="#hl-css">67.5. CodeRay and Pygments Stylesheets</a></li>
 </ul>
 </li>
-<li><a href="#xhtml">69. XHTML</a></li>
-<li><a href="#docbook">70. DocBook</a></li>
-<li><a href="#man-pages">71. Man Pages</a></li>
-<li><a href="#pdfs">72. PDFs</a></li>
-<li><a href="#preview-your-content">73. Preview Your Content</a>
+<li><a href="#xhtml">68. XHTML</a></li>
+<li><a href="#docbook">69. DocBook</a></li>
+<li><a href="#man-pages">70. Man Pages</a></li>
+<li><a href="#pdfs">71. PDFs</a></li>
+<li><a href="#preview-your-content">72. Preview Your Content</a>
 <ul class="sectlevel2">
-<li><a href="#guard-live-viewer">73.1. Guard/Live Viewer</a></li>
+<li><a href="#guard-live-viewer">72.1. Guard/Live Viewer</a></li>
 </ul>
 </li>
-<li><a href="#process-multiple-source-files-from-the-cli">74. Process Multiple Source Files from the CLI</a></li>
-<li><a href="#specifying-an-output-file">75. Specifying an Output File</a></li>
-<li><a href="#running-asciidoctor-securely">76. Running Asciidoctor Securely</a>
+<li><a href="#process-multiple-source-files-from-the-cli">73. Process Multiple Source Files from the CLI</a></li>
+<li><a href="#specifying-an-output-file">74. Specifying an Output File</a></li>
+<li><a href="#running-asciidoctor-securely">75. Running Asciidoctor Securely</a>
 <ul class="sectlevel2">
-<li><a href="#set-the-safe-mode-in-the-cli">76.1. Set the Safe Mode in the CLI</a></li>
-<li><a href="#set-the-safe-mode-in-the-api">76.2. Set the Safe Mode in the API</a></li>
-<li><a href="#set-attributes-based-on-the-safe-mode">76.3. Set Attributes Based on the Safe Mode</a></li>
+<li><a href="#set-the-safe-mode-in-the-cli">75.1. Set the Safe Mode in the CLI</a></li>
+<li><a href="#set-the-safe-mode-in-the-api">75.2. Set the Safe Mode in the API</a></li>
+<li><a href="#set-attributes-based-on-the-safe-mode">75.3. Set Attributes Based on the Safe Mode</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#customizing-your-output">Customizing Your Output</a>
 <ul class="sectlevel1">
-<li><a href="#custom-themes">77. Custom Themes</a>
+<li><a href="#custom-themes">76. Custom Themes</a>
 <ul class="sectlevel2">
-<li><a href="#creating-a-theme">77.1. Creating a Theme</a></li>
-<li><a href="#applying-a-theme">77.2. Applying a Theme</a></li>
+<li><a href="#creating-a-theme">76.1. Creating a Theme</a></li>
+<li><a href="#applying-a-theme">76.2. Applying a Theme</a></li>
 </ul>
 </li>
-<li><a href="#stylesheet-factory">78. Stylesheet Factory</a>
+<li><a href="#stylesheet-factory">77. Stylesheet Factory</a>
 <ul class="sectlevel2">
-<li><a href="#setting-up-the-factory">78.1. Setting up the Factory</a></li>
-<li><a href="#applying-a-stylesheet">78.2. Applying a Stylesheet</a></li>
-<li><a href="#generate-an-html-document">78.3. Generate an HTML Document</a></li>
-<li><a href="#external-preview">78.4. External Preview</a></li>
+<li><a href="#setting-up-the-factory">77.1. Setting up the Factory</a></li>
+<li><a href="#applying-a-stylesheet">77.2. Applying a Stylesheet</a></li>
+<li><a href="#generate-an-html-document">77.3. Generate an HTML Document</a></li>
+<li><a href="#external-preview">77.4. External Preview</a></li>
 </ul>
 </li>
-<li><a href="#slideshows">79. Slideshows</a>
+<li><a href="#slideshows">78. Slideshows</a>
 <ul class="sectlevel2">
-<li><a href="#deckjs">79.1. Deck.js</a></li>
+<li><a href="#deckjs">78.1. Deck.js</a></li>
 </ul>
 </li>
-<li><a href="#custom-backends">80. Custom Backends</a>
+<li><a href="#custom-backends">79. Custom Backends</a>
 <ul class="sectlevel2">
-<li><a href="#creating-a-backend">80.1. Creating a Backend</a></li>
+<li><a href="#creating-a-backend">79.1. Creating a Backend</a></li>
 </ul>
 </li>
-<li><a href="#language-support">81. Using Asciidoctor with Other Languages</a>
+<li><a href="#language-support">80. Using Asciidoctor with Other Languages</a>
 <ul class="sectlevel2">
-<li><a href="#customizing-labels">81.1. Customizing built-in labels</a></li>
-<li><a href="#translation">81.2. Translation</a></li>
+<li><a href="#customizing-labels">80.1. Customizing built-in labels</a></li>
+<li><a href="#translation">80.2. Translation</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#publishing-your-content">Publishing Your Content</a>
 <ul class="sectlevel1">
-<li><a href="#repositories">82. Repositories</a></li>
-<li><a href="#static-website-generators">83. Static Website Generators</a>
+<li><a href="#repositories">81. Repositories</a></li>
+<li><a href="#static-website-generators">82. Static Website Generators</a>
 <ul class="sectlevel2">
-<li><a href="#front-matter-added-for-static-site-generators">83.1. Front Matter Added for Static Site Generators</a></li>
+<li><a href="#front-matter-added-for-static-site-generators">82.1. Front Matter Added for Static Site Generators</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#api">Using Asciidoctor&#8217;s API</a>
 <ul class="sectlevel1">
-<li><a href="#load-and-render-a-file-using-the-api">84. Load and Render a File Using the API</a>
+<li><a href="#load-and-render-a-file-using-the-api">83. Load and Render a File Using the API</a>
 <ul class="sectlevel2">
-<li><a href="#render-strings">84.1. Render Strings</a></li>
+<li><a href="#render-strings">83.1. Render Strings</a></li>
 </ul>
 </li>
-<li><a href="#provide-custom-templates">85. Provide Custom Templates</a></li>
+<li><a href="#provide-custom-templates">84. Provide Custom Templates</a></li>
 </ul>
 </li>
 <li><a href="#extensions">Extensions</a>
 <ul class="sectlevel1">
-<li><a href="#extension-points">86. Extension Points</a></li>
-<li><a href="#example-extensions">87. Example Extensions</a>
+<li><a href="#extension-points">85. Extension Points</a></li>
+<li><a href="#example-extensions">86. Example Extensions</a>
 <ul class="sectlevel2">
-<li><a href="#preprocessor-example">87.1. Preprocessor Example</a></li>
-<li><a href="#treeprocessor-example">87.2. Treeprocessor Example</a></li>
-<li><a href="#postprocessor-example">87.3. Postprocessor Example</a></li>
-<li><a href="#block-processor-example">87.4. Block Processor Example</a></li>
-<li><a href="#block-macro-processor-example">87.5. Block Macro Processor Example</a></li>
-<li><a href="#inline-macro-processor-example">87.6. Inline Macro Processor Example</a></li>
-<li><a href="#include-processor-example">87.7. Include Processor Example</a></li>
+<li><a href="#preprocessor-example">86.1. Preprocessor Example</a></li>
+<li><a href="#treeprocessor-example">86.2. Treeprocessor Example</a></li>
+<li><a href="#postprocessor-example">86.3. Postprocessor Example</a></li>
+<li><a href="#block-processor-example">86.4. Block Processor Example</a></li>
+<li><a href="#block-macro-processor-example">86.5. Block Macro Processor Example</a></li>
+<li><a href="#inline-macro-processor-example">86.6. Inline Macro Processor Example</a></li>
+<li><a href="#include-processor-example">86.7. Include Processor Example</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#build-integrations-and-implementations">Build Integrations and Implementations</a>
 <ul class="sectlevel1">
-<li><a href="#java">88. Java</a></li>
-<li><a href="#gradle">89. Gradle</a></li>
-<li><a href="#maven">90. Maven</a></li>
-<li><a href="#apache-ant">91. Apache Ant</a></li>
-<li><a href="#javadoc">92. JavaDoc</a></li>
-<li><a href="#javascript">93. JavaScript</a></li>
-<li><a href="#yard">94. Yard</a></li>
-<li><a href="#rdoc">95. Rdoc</a></li>
+<li><a href="#java">87. Java</a></li>
+<li><a href="#gradle">88. Gradle</a></li>
+<li><a href="#maven">89. Maven</a></li>
+<li><a href="#apache-ant">90. Apache Ant</a></li>
+<li><a href="#javadoc">91. JavaDoc</a></li>
+<li><a href="#javascript">92. JavaScript</a></li>
+<li><a href="#yard">93. Yard</a></li>
+<li><a href="#rdoc">94. Rdoc</a></li>
 </ul>
 </li>
 <li><a href="#conversions-and-migrations">Conversions and Migrations</a>
 <ul class="sectlevel1">
-<li><a href="#migrating-from-asciidoc-python">96. Migrating from AsciiDoc Python</a>
+<li><a href="#migrating-from-asciidoc-python">95. Migrating from AsciiDoc Python</a>
 <ul class="sectlevel2">
-<li><a href="#command-line-interface">96.1. Command Line Interface</a></li>
-<li><a href="#changed-syntax">96.2. Changed Syntax</a></li>
-<li><a href="#migrate-deprecated">96.3. Deleted and Deprecated Syntax and Attributes</a></li>
-<li><a href="#migrate-stylesheet">96.4. Default HTML Stylesheet</a></li>
-<li><a href="#mathematical-expressions">96.5. Mathematical Expressions</a></li>
-<li><a href="#migrate-extensions">96.6. AsciiDoc Python Extensions</a></li>
-<li><a href="#custom-extensions">96.7. Custom Extensions</a></li>
-<li><a href="#features-introduced-by-asciidoctor">96.8. Features Introduced by Asciidoctor</a></li>
+<li><a href="#command-line-interface">95.1. Command Line Interface</a></li>
+<li><a href="#changed-syntax">95.2. Changed Syntax</a></li>
+<li><a href="#migrate-deprecated">95.3. Deleted and Deprecated Syntax and Attributes</a></li>
+<li><a href="#migrate-stylesheet">95.4. Default HTML Stylesheet</a></li>
+<li><a href="#mathematical-expressions">95.5. Mathematical Expressions</a></li>
+<li><a href="#migrate-extensions">95.6. AsciiDoc Python Extensions</a></li>
+<li><a href="#custom-extensions">95.7. Custom Extensions</a></li>
+<li><a href="#features-introduced-by-asciidoctor">95.8. Features Introduced by Asciidoctor</a></li>
 </ul>
 </li>
-<li><a href="#convert-docbook-xml-to-asciidoc">97. Convert DocBook XML to AsciiDoc</a></li>
-<li><a href="#convert-markdown-to-asciidoc">98. Convert Markdown to AsciiDoc</a></li>
-<li><a href="#convert-confluence-xhtml-to-asciidoc">99. Convert Confluence XHTML to AsciiDoc</a></li>
+<li><a href="#convert-docbook-xml-to-asciidoc">96. Convert DocBook XML to AsciiDoc</a></li>
+<li><a href="#convert-markdown-to-asciidoc">97. Convert Markdown to AsciiDoc</a></li>
+<li><a href="#convert-confluence-xhtml-to-asciidoc">98. Convert Confluence XHTML to AsciiDoc</a></li>
 </ul>
 </li>
 <li><a href="#resources">Resources</a>
 <ul class="sectlevel1">
-<li><a href="#copyright-and-license">100. Copyright and License</a></li>
-<li><a href="#authors">101. Authors</a></li>
-<li><a href="#troubleshoot">102. Troubleshooting</a></li>
-<li><a href="#glossary">103. Glossary</a></li>
+<li><a href="#copyright-and-license">99. Copyright and License</a></li>
+<li><a href="#authors">100. Authors</a></li>
+<li><a href="#troubleshoot">101. Troubleshooting</a></li>
+<li><a href="#glossary">102. Glossary</a></li>
 <li><a href="#attribute-catalog">Appendix A: Catalog of Document Attributes</a>
 <ul class="sectlevel2">
 <li><a href="#env-attributes">A.1. Environment Attributes</a></li>
@@ -10863,7 +10849,7 @@ However, you will get the following warning message during conversion:</p>
 </div>
 <div class="paragraph">
 <p>If you store your AsciiDoc files in nested folders at different levels, relative file paths can quickly become awkward and inflexible.
-A common pattern to help here is to define the path (or several paths) in an attribute defined at the top of the document, then prefix all include paths with a reference to one of these attributes:</p>
+A common pattern to help here is to define the paths in attributes defined in the header, then prefix all include paths with a reference to one of these attributes:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -16290,688 +16276,7 @@ NOTE: Asciidoctor now supports font-based admonition icons, powered by Font Awes
 </div>
 </div>
 <div class="sect1">
-<h2 id="include-directive-2"><a class="anchor" href="#include-directive-2"></a>51. Include Directive</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The include directive, <code>include::path[attributes]</code>, allows you to insert content from another file into the current document.
-You can use the include directive to:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>partition a large document into smaller files (for better organization and to make restructuring simpler),</p>
-</li>
-<li>
-<p>insert snippets of source code (so your examples are kept up-to-date with the latest source files),</p>
-</li>
-<li>
-<p>populate tables with output from other programs (e.g., CSV data),</p>
-</li>
-<li>
-<p>create document variants by combining the include directive with preprocessor conditionals (e.g., <code>ifdef</code>), and</p>
-</li>
-<li>
-<p>reuse fragments and boilerplate content multiple times within the same document.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>It&#8217;s important to understand that the include directive is <em>not</em> aware of the document structure.
-It effectively copies the content from the other file and pastes it at the location of the include directive.
-This is called a preprocessor operation.</p>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-The include directive is <em>disabled</em> when Asciidoctor is run in secure mode.
-In secure mode, include directives get converted to links in the output document.
-To learn more about secure mode, refer to the section <a href="#running-asciidoctor-securely">Running Asciidoctor Securely</a>.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="include-basics"><a class="anchor" href="#include-basics"></a>51.1. Basics</h3>
-<div class="paragraph">
-<p>The include directive has the following anatomy:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">include::path[leveloffset=<em>offset</em>,lines=<em>ranges</em>,tag(s)=<em>name(s)</em>,indent=<em>depth</em>]</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The leveloffset, lines, tag(s) and indent attributes are optional, making the simplest case look like:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">= Document Title
-
-include::content.adoc[]</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The sections that follow go into detail about how the include file is resolved and how each attribute is used.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="include-resolution"><a class="anchor" href="#include-resolution"></a>51.2. File resolution</h3>
-<div class="paragraph">
-<p>The path used in an include directive may be either relative or absolute.</p>
-</div>
-<div class="paragraph">
-<p>If the path relative, the processor resolves the path using the following rules:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If the include directive is used in the main (top-level) document, relative paths are resolved relative to the base directory.
-(The base directory defaults to the directory of the main document and can be overridden from the CLI or API).</p>
-</li>
-<li>
-<p>If the include directive is used in a file that has itself been included, the path is resolved relative to the including (i.e., current) file.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These defaults makes it easy to reason about how the path to the include file is resolved.</p>
-</div>
-<div class="paragraph">
-<p>If the processor cannot locate the file (perhaps because you mistyped the path), you&#8217;ll still be able to convert the document.
-However, you will get the following warning message during conversion:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">asciidoctor: WARNING: master.adoc: line 3: include file not found: /.../content.adoc</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The following message will also be inserted into the output:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">Unresolved directive in master.adoc - include::content.adoc[]</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>To fix the problem, edit the file path and run the converter again.</p>
-</div>
-<div class="paragraph">
-<p>If you store your AsciiDoc files in nested folders at different levels, relative file paths can quickly become awkward and inflexible.
-A common pattern to help here is to define the path (or several paths) in an attribute defined at the top of the document, then prefix all include paths with a reference to one of these attributes:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">:includedir: _includes
-:sourcedir: ../src/main/java
-
-include::{includedir}/fragment1.adoc[]
-
-[source,java]
-----
-include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
-----</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Keep in mind that no matter how Asciidoctor resolves the path to the file, access to that file is limited by the safe mode setting under which Asciidoctor is run.
-If a path violates the security restrictions, it may be truncated.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="include-partitioning"><a class="anchor" href="#include-partitioning"></a>51.3. Partitioning large documents and using leveloffset</h3>
-<div class="paragraph">
-<p>When your document gets large, you can split it up into subsections for easier editing as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">= My book
-
-include::chapter01.adoc[]
-
-include::chapter02.adoc[]
-
-include::chapter03.adoc[]</pre>
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Note the blank lines before and after the include directives.
-This practice is recommended whenever including AsciiDoc content to avoid unexpected results (e.g., a section title getting interpreted as a line at the end of a previous paragraph).
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The leveloffset attribute can help here by pushing all headings in the included document down by the specified number of levels.
-This allows you to publish each chapter as a standalone document (complete with a document title), but still be able to include the chapters into a master document (which has its own document title).</p>
-</div>
-<div class="paragraph">
-<p>You can easily assemble your book so that the chapter document titles become level 1 headings using:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">= My Book
-
-include::chapter01.adoc[leveloffset=+1]
-
-include::chapter02.adoc[leveloffset=+1]
-
-include::chapter03.adoc[leveloffset=+1]</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Because the leveloffset is <em>relative</em> (it begins with + or -), this works even if the included document has its own includes and leveloffsets.</p>
-</div>
-<div class="paragraph">
-<p>If you have lots of chapters to include and want them all to have the same offset, you can save some typing by setting leveloffset around the includes:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">= My book
-
-:leveloffset: +1
-
-include::chapter01.adoc[]
-
-include::chapter02.adoc[]
-
-include::chapter03.adoc[]
-
-:leveloffset: -1</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The final line returns the leveloffset to 0.</p>
-</div>
-<div class="paragraph">
-<p>Alternatively, you could use absolute levels:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">:leveloffset: 1
-
-//includes
-
-:leveloffset: 0</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Relative levels are preferred.
-Absolute levels become awkward when you have nested includes since they aren&#8217;t context aware.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="include-nonasciidoc"><a class="anchor" href="#include-nonasciidoc"></a>51.4. AsciiDoc vs non-AsciiDoc files</h3>
-<div class="paragraph">
-<p>The include directive performs a simple file merge, so it works with any text file.
-The content of all included content is normalized.
-This means that the encoding is forced to UTF-8 (or converted from UTF-16 to UTF-8 if the file contains a BOM) and trailing whitespace and endlines are removed from each line and replaced with a Unix line feed.
-This normalization is important to how Asciidoctor works.</p>
-</div>
-<div class="paragraph">
-<p>If the file is recognized as an AsciiDoc file (i.e., it has one of the following extensions: <code>.asciidoc</code>, <code>.adoc</code>, <code>.ad</code>, <code>.asc</code>, or <code>.txt</code>), Asciidoctor runs the preprocessor on the lines, looking for and interpreting the following directives:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>includes</p>
-</li>
-<li>
-<p>preprocessor conditionals (e.g., <code>ifdef</code>)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This allows includes to be nested, and provides lot of flexibility in constructing radically different documents with a single master document and a few command line attributes.</p>
-</div>
-<div class="paragraph">
-<p>Including non-AsciiDoc files is normally done to merge output from other programs or populate table data:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">.2016 Sales Results
-,===
-include::sales/2016/results.csv[]
-,===</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In this case, the include directive does not do any processing of AsciiDoc directives.
-The content is inserted as is (after being normalized).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="selecting-parts-of-a-document-to-include"><a class="anchor" href="#selecting-parts-of-a-document-to-include"></a>51.5. Selecting Parts of a Document to Include</h3>
-<div class="paragraph">
-<p>The include directive supports extracting portions of content from within a document.
-The content is specified either by user-defined tags or a range of line numbers.</p>
-</div>
-<div class="paragraph">
-<p>When including multiple line ranges or multiple tags, the individual values can be separated either by a comma or a semi-colon.
-If commas are used, then the entire attribute value must be enclosed in quotes.
-Using the semi-colon as the data separator alleviates this requirement.</p>
-</div>
-<div class="sect3">
-<h4 id="by-tagged-regions-2"><a class="anchor" href="#by-tagged-regions-2"></a>51.5.1. By tagged regions</h4>
-<div class="paragraph">
-<p>Tags are useful when you want to display specific regions of content from an include file instead of all of its content.
-You can select tagged regions of content with the <code>tag</code> macro and the <code>tags</code> attribute.
-The example below shows how you tag a region of content inside a file containing multiple code examples.</p>
-</div>
-<div class="listingblock">
-<div class="title">Tagged code snippets in a file named core.rb</div>
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="ruby"><span class="comment"># tag::timings[]  </span><i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b>
-<span class="keyword">if</span> timings
-  timings.record <span class="symbol">:read</span>
-  timings.start <span class="symbol">:parse</span>
-<span class="keyword">end</span>
-<span class="comment"># end::timings[]  </span><i class="conum" data-value="3"></i><b>(3)</b> <i class="conum" data-value="4"></i><b>(4)</b>
-<span class="comment"># tag::parse[] </span><i class="conum" data-value="5"></i><b>(5)</b>
-doc = (options[<span class="symbol">:parse</span>] == <span class="predefined-constant">false</span> ? (<span class="constant">Document</span>.new lines, options) :
-    (<span class="constant">Document</span>.new lines,options).parse)
-timings.record <span class="symbol">:parse</span> <span class="keyword">if</span> timings
-doc
-<span class="comment"># end::parse[] </span> <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>To indicate the start of a tagged region, insert a comment line in the code.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Assign a unique name to the tag macro. In this example the tag is called <em>timings</em>.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Insert another comment line where you want the tagged region to end.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Assign the name of the region you want to terminate to the <code>end</code> macro.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>This is the start a tagged snippet named <em>parse</em>.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>This is the end of the tagged snippet named <em>parse</em>.</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-The <code>tag::[]</code> and <code>end::[]</code> directives should be placed after a line comment as defined by the language of the source file.
-The directives must also appear at the <em>end</em> of the line.
-In the previous example, we choose to prefix the lines with a hash (<code>#</code>) because that&#8217;s the start of a line comment in Ruby.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Asciidoctor supports targets that include spaces and the <code>{sp}</code> attribute references.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>In the next example, the tagged region named <em>parse</em> is called by the <code>include</code> directive.</p>
-</div>
-<div class="listingblock">
-<div class="title">Calling the <em>parse</em> code snippet from a document</div>
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[source,ruby]
-----
-include::core.rb[tags=parse] <i class="conum" data-value="1"></i><b>(1)</b>
-----</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>In the directive&#8217;s brackets, set the <code>tag</code> attribute and assign it the unique name of the code snippet you tagged in your code file.</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>You can include multiple tags from the same file.</p>
-</div>
-<div class="listingblock">
-<div class="title">Calling the <em>timings</em> and the <em>parse</em> code snippets from a document</div>
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[source,ruby]
-----
-include::core.rb[tags=timings;parse]
-----</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>It is also possible to have fine-grained tagged regions inside larger tagged regions.</p>
-</div>
-<div class="paragraph">
-<p>For example, if your include file has the following content:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">// tag::snippets[]
-// tag::snippet-a[]
-snippet a
-// end::snippet-a[]
-
-// tag::snippet-b[]
-snippet b
-// end::snippet-b[]
-// end::snippets[]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>And you include this file using the following include directive:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">include::file-with-snippets.adoc[tag=snippets]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The following lines will be selected and displayed:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">snippet a
-
-snippet b</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Notice that none of the lines with the tag directives are displayed.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-for XML files you can use the <code>&lt;!-- tag::name[] --&gt;</code> and <code>&lt;!-- end::name[] --&gt;</code> delimiters
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Alternately, you can select content by line number.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="by-line-ranges-2"><a class="anchor" href="#by-line-ranges-2"></a>51.5.2. By line ranges</h4>
-<div class="paragraph">
-<p>To include content by line range, assign a starting line number and an ending line number separated by a pair of dots (e.g., <code>lines=1..5</code>) to the <code>lines</code> attribute.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">include::filename.txt[lines=5..10]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can specify multiple ranges by separating each range by a comma.
-Since commas are normally used to separate individual attributes, you must quote the comma-separated list of ranges.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">include::filename.txt[lines=&quot;1..10,15..20&quot;]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>To avoid having to quote the list of ranges, you can instead separate them using semi-colons.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">include::filename.txt[lines=7;14..25;28..43]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If you don&#8217;t know the number of lines in the document, or you don&#8217;t want to couple the range to the length of the file, you can refer to the last line of the document using the value -1.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">include::filename.txt[lines=12..-1]</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="relative-leveloffset"><a class="anchor" href="#relative-leveloffset"></a>51.6. Relative Leveloffset</h3>
-<div class="paragraph">
-<p>The <code>leveloffset</code> attribute is used to <a href="http://asciidoc.org/userguide.html#X90">shift the level of sections</a> when combining documents.
-It works great for a single include level, but it quickly breaks down when you get into multiple levels of nesting.</p>
-</div>
-<div class="paragraph">
-<p>The problem is that the level offset value is assumed to be absolute.
-Asciidoctor now supports <em>relative</em> level offset values using a leading + or - operator.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">:leveloffset: +1
-include::chapter-01.adoc[]
-:leveloffset: -1</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Alternatively, you can specify the <code>leveloffset</code> attribute directly on the include directive so you don&#8217;t have to worry about restoring the old value.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">include::chapter-01.adoc[leveloffset=+1]</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="normalizing-block-indentation"><a class="anchor" href="#normalizing-block-indentation"></a>51.7. Normalizing Block Indentation</h3>
-<div class="paragraph">
-<p>Source code snippets from external files are often padded with a leading block indent.
-This leading block indent is relevant in its original context.
-However, once inside the documentation, this leading block indent is no longer needed.</p>
-</div>
-<div class="paragraph">
-<p>The attribute <code>indent</code> allows the leading block indent to be stripped and, optionally, a new block indent to be set for blocks with verbatim content (listing, literal, source, verse, etc.).</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>When <code>indent</code> is 0, the leading block indent is stripped</p>
-</li>
-<li>
-<p>When <code>indent</code> is &gt; 0, the leading block indent is first stripped, then the content is indented by the number of columns equal to this value.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>If the <code>tabsize</code> attribute is set on the block or the document, tabs are also replaced with the number of spaces specified by that attribute, regardless of whether the <code>indent</code> attribute is set.</p>
-</div>
-<div class="paragraph">
-<p>For example, this AsciiDoc source:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[source,ruby,indent=0]
-----
-    def names
-      @name.split ' '
-    end
-----</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Produces:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">def names
-  @name.split ' '
-end</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This AsciiDoc source:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">[indent=2]
-----
-    def names
-      @name.split ' '
-    end
-----</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Produces:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">  def names
-    @name.split ' '
-  end</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="include-files-relative-to-a-common-source-directory"><a class="anchor" href="#include-files-relative-to-a-common-source-directory"></a>51.8. Include Files Relative to a Common Source Directory</h3>
-<div class="paragraph">
-<p>Asciidoctor expands attributes in the target of the include directive.
-That means you only have to type the unique part of the path when linking to a source file.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:sourcedir: src/main/java
-
-[source,java]
-----
-include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
-----</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The target of the include resolves to:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">src/main/java/org/asciidoctor/Asciidoctor.java</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="include-content-from-a-uri"><a class="anchor" href="#include-content-from-a-uri"></a>51.9. Include Content from a URI</h3>
-<div class="paragraph">
-<p>The include directive can insert content directly from a URI when the <code>allow-uri-read</code> attribute is:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Passed on the command-line,</p>
-</li>
-<li>
-<p>Passed as an attribute to the Asciidoctor API (Asciidoctor, AsciidoctorJ or Asciidoctor.js).</p>
-</li>
-</ul>
-</div>
-<div class="exampleblock">
-<div class="title">Including content through a URI</div>
-<div class="content">
-<div class="paragraph">
-<p>This example demonstrates how to include an AsciiDoc file from a GitHub repo directly into your document.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:asciidoctor-source: https://raw.githubusercontent.com/asciidoctor/asciidoctor/master
-
-include::{asciidoctor-source}/README.adoc[]</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-Including content from sources outside your control carries certain risks, including the potential to introduce malicious behavior into your documentation.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Because <code>allow-uri-read</code> is a potentially dangerous feature, it will only work if safe mode is set to <code>SERVER</code> or less. <code>SECURE</code> or higher prevents this feature from running altogether.</p>
-</div>
-<div class="paragraph">
-<p>When running Asciidoctor with safe mode set to <code>SERVER</code> or less, you must also set the <code>allow-uri-read</code> attribute on the command-line to permit Asciidoctor to read content from a URI.</p>
-</div>
-<div class="listingblock">
-<div class="title">Command Example</div>
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">asciidoctor -a allow-uri-read filename.adoc</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="caching-uri-content-2"><a class="anchor" href="#caching-uri-content-2"></a>51.10. Caching URI Content</h3>
-<div class="paragraph">
-<p>Reading content from a URI is obviously much slower than reading it from a local file.</p>
-</div>
-<div class="paragraph">
-<p>Asciidoctor provides a way for the content read from a URI to be cached, which is highly recommended.</p>
-</div>
-<div class="paragraph">
-<p>To enable the built-in cache, you must:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Install the <code>open-uri-cached</code> gem.</p>
-</li>
-<li>
-<p>Set the <code>cache-uri</code> attribute in the document.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>When these two conditions are satisfied, Asciidoctor caches content read from a URI according the to <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">HTTP caching recommendations</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="conditional-preprocessor-directives"><a class="anchor" href="#conditional-preprocessor-directives"></a>52. Conditional Preprocessor Directives</h2>
+<h2 id="conditional-preprocessor-directives"><a class="anchor" href="#conditional-preprocessor-directives"></a>51. Conditional Preprocessor Directives</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can include or exclude lines of text in your document using one of the following conditional preprocessor directives:</p>
@@ -17000,7 +16305,7 @@ You simply check for the presence of the <code>basebackend-html</code> attribute
 Details of this example, as well as others, are described in the following sections.</p>
 </div>
 <div class="sect2">
-<h3 id="ifdef-directive"><a class="anchor" href="#ifdef-directive"></a>52.1. ifdef Directive</h3>
+<h3 id="ifdef-directive"><a class="anchor" href="#ifdef-directive"></a>51.1. ifdef Directive</h3>
 <div class="paragraph">
 <p>Content between the <code>ifdef</code> and <code>endif</code> directives gets included if the specified attribute is set:</p>
 </div>
@@ -17070,7 +16375,7 @@ endif::[]</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ifndef-directive"><a class="anchor" href="#ifndef-directive"></a>52.2. ifndef Directive</h3>
+<h3 id="ifndef-directive"><a class="anchor" href="#ifndef-directive"></a>51.2. ifndef Directive</h3>
 <div class="paragraph">
 <p><code>ifndef</code> is the logical opposite of <code>ifdef</code>.
 Content between <code>ifndef</code> and <code>endif</code> gets included only if the specified attribute is <em>not</em> set:</p>
@@ -17091,7 +16396,7 @@ endif::[]</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-multiple-attributes-ifdef-and-ifndef-only"><a class="anchor" href="#checking-multiple-attributes-ifdef-and-ifndef-only"></a>52.3. Checking multiple attributes (ifdef and ifndef only)</h3>
+<h3 id="checking-multiple-attributes-ifdef-and-ifndef-only"><a class="anchor" href="#checking-multiple-attributes-ifdef-and-ifndef-only"></a>51.3. Checking multiple attributes (ifdef and ifndef only)</h3>
 <div class="paragraph">
 <p>Both the <code>ifdef</code> and <code>ifndef</code> directives accept multiple attribute names.
 The combinator can be &#8220;and&#8221; or &#8220;or&#8221;.</p>
@@ -17122,7 +16427,7 @@ The combinator can be &#8220;and&#8221; or &#8220;or&#8221;.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ifeval-directive"><a class="anchor" href="#ifeval-directive"></a>52.4. ifeval directive</h3>
+<h3 id="ifeval-directive"><a class="anchor" href="#ifeval-directive"></a>51.4. ifeval directive</h3>
 <div class="paragraph">
 <p>Content between <code>ifeval</code> and <code>endif</code> gets included if the expression inside the square brackets evaluates to true.</p>
 </div>
@@ -17138,7 +16443,7 @@ endif::[]</pre>
 <p>The <code>ifeval</code> directive does not have a single-line or long-form variant like <code>ifdef</code> and <code>ifndef</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="anatomy"><a class="anchor" href="#anatomy"></a>52.4.1. Anatomy</h4>
+<h4 id="anatomy"><a class="anchor" href="#anatomy"></a>51.4.1. Anatomy</h4>
 <div class="paragraph">
 <p>The expression consists of a left-hand value and a right-hand value with an operator in between.</p>
 </div>
@@ -17164,7 +16469,7 @@ endif::[]</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="values"><a class="anchor" href="#values"></a>52.4.2. Values</h4>
+<h4 id="values"><a class="anchor" href="#values"></a>51.4.2. Values</h4>
 <div class="paragraph">
 <p>Each expression value can reference the name of zero or more AsciiDoc attribute using the attribute reference syntax (for example, <code>{backend}</code>).</p>
 </div>
@@ -17224,7 +16529,7 @@ Once attributes references have been resolved, each value is coerced to a recogn
 </div>
 </div>
 <div class="sect3">
-<h4 id="operators"><a class="anchor" href="#operators"></a>52.4.3. Operators</h4>
+<h4 id="operators"><a class="anchor" href="#operators"></a>51.4.3. Operators</h4>
 <div class="paragraph">
 <p>The value on each side is compared using the operator to derive an outcome.</p>
 </div>
@@ -17273,14 +16578,14 @@ The operators follow the same rules as operators in Ruby.
 </div>
 </div>
 <div class="sect1">
-<h2 id="docinfo-file"><a class="anchor" href="#docinfo-file"></a>53. Docinfo File</h2>
+<h2 id="docinfo-file"><a class="anchor" href="#docinfo-file"></a>52. Docinfo File</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can add custom content to the header or footer of a document with document information (<code>docinfo</code>) files.
 The docinfo file&#8217;s content and file extension depends on whether the source document&#8217;s output is HTML or DocBook.</p>
 </div>
 <div class="sect2">
-<h3 id="create-a-docinfo-file"><a class="anchor" href="#create-a-docinfo-file"></a>53.1. Create a docinfo file</h3>
+<h3 id="create-a-docinfo-file"><a class="anchor" href="#create-a-docinfo-file"></a>52.1. Create a docinfo file</h3>
 <div class="paragraph">
 <p>When the source document will be rendered to HTML, the docinfo file can contain the elements allowed in an HTML <code>&lt;HEAD&gt;</code> section, including:</p>
 </div>
@@ -17384,7 +16689,7 @@ To see another example of a docinfo file for DocBook, checkout the <a href="http
 </div>
 </div>
 <div class="sect2">
-<h3 id="docinfo-attributes-and-file-names"><a class="anchor" href="#docinfo-attributes-and-file-names"></a>53.2. Docinfo attributes and file names</h3>
+<h3 id="docinfo-attributes-and-file-names"><a class="anchor" href="#docinfo-attributes-and-file-names"></a>52.2. Docinfo attributes and file names</h3>
 <div class="paragraph">
 <p>To add content from a docinfo file to the header of a rendered document:</p>
 </div>
@@ -17495,7 +16800,7 @@ You want to add the same content to the headers of both documents when they&#821
 </div>
 </div>
 <div class="sect2">
-<h3 id="footer-docinfo-files"><a class="anchor" href="#footer-docinfo-files"></a>53.3. Footer docinfo files</h3>
+<h3 id="footer-docinfo-files"><a class="anchor" href="#footer-docinfo-files"></a>52.3. Footer docinfo files</h3>
 <div class="paragraph">
 <p>Footer docinfo files are differentiated from header docinfo files by adding <code>-footer</code> to the file name.
 In the HTML output, the footer content is inserted immediately after the footer div (that is, <code>&lt;div id="footer"&gt;</code>).
@@ -17532,7 +16837,7 @@ To disable the footer completely, set the attribute <code>nofooter</code>. Then 
 </div>
 </div>
 <div class="sect2">
-<h3 id="attribute-substitution"><a class="anchor" href="#attribute-substitution"></a>53.4. Attribute substitution</h3>
+<h3 id="attribute-substitution"><a class="anchor" href="#attribute-substitution"></a>52.4. Attribute substitution</h3>
 <div class="paragraph">
 <p>Docinfo files can include attribute references.</p>
 </div>
@@ -17600,7 +16905,7 @@ v1.0, 2013-06-01
 </div>
 </div>
 <div class="sect1">
-<h2 id="counters"><a class="anchor" href="#counters"></a>54. Counters</h2>
+<h2 id="counters"><a class="anchor" href="#counters"></a>53. Counters</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Counters are used to store and display ad-hoc sequences of numbers or latin characters.
@@ -17776,7 +17081,7 @@ In the following sections, you&#8217;ll learn the dependency, structure, and out
 </div>
 </div>
 <div class="sect1">
-<h2 id="title-page"><a class="anchor" href="#title-page"></a>55. Title Page</h2>
+<h2 id="title-page"><a class="anchor" href="#title-page"></a>54. Title Page</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -17794,7 +17099,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/448">Issue 44
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-colophon"><a class="anchor" href="#user-colophon"></a>56. Colophon</h2>
+<h2 id="user-colophon"><a class="anchor" href="#user-colophon"></a>55. Colophon</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Book colophons list information such as the ISBN, publishing house, edition and copyright dates, legal notices and disclaimers, cover art, design, and book layout credits, and any significant production notes.
@@ -17821,7 +17126,7 @@ The printing and binding is by Ceres Lithographing, Inc., Ceres, Milky Way.</pre
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-toc"><a class="anchor" href="#user-toc"></a>57. Table of Contents</h2>
+<h2 id="user-toc"><a class="anchor" href="#user-toc"></a>56. Table of Contents</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A table of contents (TOC) is an index of section and subsection titles that can be automatically generated from the document&#8217;s structure when converting a document with Asciidoctor.</p>
@@ -17874,7 +17179,7 @@ However, not all customizations are supported by all converters.
 See the <a href="#table-of-contents-summary">Table of Contents Summary</a> to find out which customizations are available to each backend.</p>
 </div>
 <div class="sect2">
-<h3 id="manual-placement"><a class="anchor" href="#manual-placement"></a>57.1. In-Document Placement</h3>
+<h3 id="manual-placement"><a class="anchor" href="#manual-placement"></a>56.1. In-Document Placement</h3>
 <div class="paragraph">
 <p><code>toc</code> values of <code>auto</code>, <code>preamble</code>, and <code>macro</code> place the TOC in the main document area.</p>
 </div>
@@ -17944,7 +17249,7 @@ The river rages through the cavern, rattling its content...</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="left-or-right-column-layout"><a class="anchor" href="#left-or-right-column-layout"></a>57.2. Side Column Placement</h3>
+<h3 id="left-or-right-column-layout"><a class="anchor" href="#left-or-right-column-layout"></a>56.2. Side Column Placement</h3>
 <div class="paragraph">
 <p>When converting to HTML, the TOC can be positioned in a column to the left or right of the main content by assigning the <code>left</code> or <code>right</code> value to the <code>toc</code> attribute.
 This positioning is achieved using CSS (so it depends on support from the stylesheet).
@@ -17988,7 +17293,7 @@ Crawling through the twisted understory...</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-toc-title"><a class="anchor" href="#user-toc-title"></a>57.3. Title</h3>
+<h3 id="user-toc-title"><a class="anchor" href="#user-toc-title"></a>56.3. Title</h3>
 <div class="paragraph">
 <p>The <code>toc-title</code> attribute allows you to change the title of the TOC.</p>
 </div>
@@ -18031,7 +17336,7 @@ The river rages through the cavern, rattling its content...</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-toc-levels"><a class="anchor" href="#user-toc-levels"></a>57.4. Levels</h3>
+<h3 id="user-toc-levels"><a class="anchor" href="#user-toc-levels"></a>56.4. Levels</h3>
 <div class="paragraph">
 <p>By default, the TOC will display level 1 and level 2 section titles.
 You can set a different depth with the <code>toclevels</code> attribute.</p>
@@ -18088,7 +17393,7 @@ The TOC will list the titles of the section 1, 2, 3, and 4 levels when the docum
 </div>
 </div>
 <div class="sect2">
-<h3 id="using-a-toc-with-embeddable-html"><a class="anchor" href="#using-a-toc-with-embeddable-html"></a>57.5. Using a TOC with Embeddable HTML</h3>
+<h3 id="using-a-toc-with-embeddable-html"><a class="anchor" href="#using-a-toc-with-embeddable-html"></a>56.5. Using a TOC with Embeddable HTML</h3>
 <div class="paragraph">
 <p>When AsciiDoc is converted to embeddable HTML (i.e., the <code>header_footer</code> option is <code>false</code>), there are only three valid values for the <code>toc</code> attribute:</p>
 </div>
@@ -18136,7 +17441,7 @@ That&#8217;s because the embeddable HTML doesn&#8217;t have the outer framing (o
 </div>
 </div>
 <div class="sect2">
-<h3 id="table-of-contents-summary"><a class="anchor" href="#table-of-contents-summary"></a>57.6. Table of Contents Summary</h3>
+<h3 id="table-of-contents-summary"><a class="anchor" href="#table-of-contents-summary"></a>56.6. Table of Contents Summary</h3>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table of contents attributes and allowed values</caption>
 <colgroup>
@@ -18205,7 +17510,7 @@ The placement and styling of the table of contents is determined by the DocBook 
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-abstract"><a class="anchor" href="#user-abstract"></a>58. Abstract</h2>
+<h2 id="user-abstract"><a class="anchor" href="#user-abstract"></a>57. Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>An abstract is a concise overview of an article.
@@ -18225,7 +17530,7 @@ Documentation is a distillation of many long, squiggly adventures.</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-preface"><a class="anchor" href="#user-preface"></a>59. Preface</h2>
+<h2 id="user-preface"><a class="anchor" href="#user-preface"></a>58. Preface</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>An author explains how the idea behind their book manifested and developed in the preface.
@@ -18253,7 +17558,7 @@ I would like to thank the Big Bang and String Theory.</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-dedication"><a class="anchor" href="#user-dedication"></a>60. Dedication</h2>
+<h2 id="user-dedication"><a class="anchor" href="#user-dedication"></a>59. Dedication</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The dedication page is where the author expresses gratitude toward a person.</p>
@@ -18271,7 +17576,7 @@ thank you for the plague of archetypes.</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="book-parts-and-chapters"><a class="anchor" href="#book-parts-and-chapters"></a>61. Book Parts and Chapters</h2>
+<h2 id="book-parts-and-chapters"><a class="anchor" href="#book-parts-and-chapters"></a>60. Book Parts and Chapters</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can group the sections of your document into parts.
@@ -18344,7 +17649,7 @@ A chapter title is a level-1 section title when the doctype is book.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-appendix"><a class="anchor" href="#user-appendix"></a>62. Appendix</h2>
+<h2 id="user-appendix"><a class="anchor" href="#user-appendix"></a>61. Appendix</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can indicate that a section, part, or chapter is an appendix by adding an <code>[appendix]</code> line above the section title.</p>
@@ -18497,7 +17802,7 @@ Appx B: Second Appendix</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-glossary"><a class="anchor" href="#user-glossary"></a>63. Glossary</h2>
+<h2 id="user-glossary"><a class="anchor" href="#user-glossary"></a>62. Glossary</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can include a glossary of definitions by including the <code>[glossary]</code> marker before the section header and before the first definition.</p>
@@ -18516,7 +17821,7 @@ rain::
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-biblio"><a class="anchor" href="#user-biblio"></a>64. Bibliography</h2>
+<h2 id="user-biblio"><a class="anchor" href="#user-biblio"></a>63. Bibliography</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="title">References</div>
@@ -18554,7 +17859,7 @@ From Journeyman to Master. Addison-Wesley. 1999.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-index"><a class="anchor" href="#user-index"></a>65. Index</h2>
+<h2 id="user-index"><a class="anchor" href="#user-index"></a>64. Index</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You specify index terms using one of the following syntaxes</p>
@@ -18613,7 +17918,7 @@ and for the Asciidoctor PDF converter in <a href="https://github.com/asciidoctor
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-footnotes"><a class="anchor" href="#user-footnotes"></a>66. Footnotes</h2>
+<h2 id="user-footnotes"><a class="anchor" href="#user-footnotes"></a>65. Footnotes</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A footnote is created with the footnote macro (<code>footnote:[]</code>).
@@ -18700,7 +18005,7 @@ That&#8217;s where the Asciidoctor themes and backends come into play.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="selecting-an-output-format"><a class="anchor" href="#selecting-an-output-format"></a>67. Selecting an Output Format</h2>
+<h2 id="selecting-an-output-format"><a class="anchor" href="#selecting-an-output-format"></a>66. Selecting an Output Format</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The Asciidoctor processor is typically used to parse an AsciiDoc document and convert it to a variety of formats, including HTML, DocBook and PDF.
@@ -18773,7 +18078,7 @@ Those converters are still in development and will be documented once releases b
 </div>
 </div>
 <div class="sect1">
-<h2 id="html"><a class="anchor" href="#html"></a>68. HTML</h2>
+<h2 id="html"><a class="anchor" href="#html"></a>67. HTML</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Asciidoctor&#8217;s default output format is HTML.</p>
@@ -18787,7 +18092,7 @@ Those converters are still in development and will be documented once releases b
 </dl>
 </div>
 <div class="sect2">
-<h3 id="using-the-command-line"><a class="anchor" href="#using-the-command-line"></a>68.1. Using the Command Line</h3>
+<h3 id="using-the-command-line"><a class="anchor" href="#using-the-command-line"></a>67.1. Using the Command Line</h3>
 <div class="paragraph">
 <p>In this section, we&#8217;ll create a sample document, then process and render it with Asciidoctor&#8217;s <code>html5</code> converter.</p>
 </div>
@@ -18871,7 +18176,7 @@ As a result, you could save mysample.html to any computer and it will look the s
 </div>
 </div>
 <div class="sect2">
-<h3 id="using-the-ruby-api-2"><a class="anchor" href="#using-the-ruby-api-2"></a>68.2. Using the Ruby API</h3>
+<h3 id="using-the-ruby-api-2"><a class="anchor" href="#using-the-ruby-api-2"></a>67.2. Using the Ruby API</h3>
 <div class="paragraph">
 <p>Asciidoctor also includes a Ruby API that lets you generate an HTML document directly from a Ruby application.</p>
 </div>
@@ -18897,7 +18202,7 @@ Use of this map is described in <a href="#ruby-api-options">Ruby API Options</a>
 </div>
 </div>
 <div class="sect2">
-<h3 id="styling-the-html-with-css"><a class="anchor" href="#styling-the-html-with-css"></a>68.3. Styling the HTML with CSS</h3>
+<h3 id="styling-the-html-with-css"><a class="anchor" href="#styling-the-html-with-css"></a>67.3. Styling the HTML with CSS</h3>
 <div class="paragraph">
 <p>Asciidoctor uses CSS for HTML document styling and JavaScript for generating document attributes such as a table of contents and footnotes.
 It comes bundled with a fresh, modern stylesheet, named <code>asciidoctor.css</code>.
@@ -18957,7 +18262,7 @@ Additionally, you can inspect mysample.html in your browser and see <code>&lt;li
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-images"><a class="anchor" href="#managing-images"></a>68.4. Managing Images</h3>
+<h3 id="managing-images"><a class="anchor" href="#managing-images"></a>67.4. Managing Images</h3>
 <div class="paragraph">
 <p>Images are not embedded in the HTML output by default.
 If you have image references in your document, you&#8217;ll have to save the image files in the same directory as your rendered document.
@@ -19001,7 +18306,7 @@ You may not be familiar with these http://en.wikipedia.org/wiki/Wolpertinger[rav
 </div>
 </div>
 <div class="sect2">
-<h3 id="hl-css"><a class="anchor" href="#hl-css"></a>68.5. CodeRay and Pygments Stylesheets</h3>
+<h3 id="hl-css"><a class="anchor" href="#hl-css"></a>67.5. CodeRay and Pygments Stylesheets</h3>
 <div class="paragraph">
 <p>Asciidoctor will also embed the theme stylesheet for the CodeRay or Pygments syntax highlighter.</p>
 </div>
@@ -19037,7 +18342,7 @@ You may not be familiar with these http://en.wikipedia.org/wiki/Wolpertinger[rav
 </div>
 </div>
 <div class="sect1">
-<h2 id="xhtml"><a class="anchor" href="#xhtml"></a>69. XHTML</h2>
+<h2 id="xhtml"><a class="anchor" href="#xhtml"></a>68. XHTML</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To convert AsciiDoc to XHTML, set the backend to <code>xhtml5</code>.</p>
@@ -19076,7 +18381,7 @@ If you want to set the <code>:format</code> option to <code>:html5</code> when u
 </div>
 </div>
 <div class="sect1">
-<h2 id="docbook"><a class="anchor" href="#docbook"></a>70. DocBook</h2>
+<h2 id="docbook"><a class="anchor" href="#docbook"></a>69. DocBook</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Asciidoctor can produce DocBook 5.0 and 4.5 output.
@@ -19212,7 +18517,7 @@ To enable it, assign an empty value to the <code>xmlns</code> attribute.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="man-pages"><a class="anchor" href="#man-pages"></a>71. Man Pages</h2>
+<h2 id="man-pages"><a class="anchor" href="#man-pages"></a>70. Man Pages</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>One of the more specialized uses of AsciiDoc is to serve as a shorthand for generating man pages (short for manual pages) for Unix and Unix-like operating systems.</p>
@@ -19396,7 +18701,7 @@ The man pages for git are also produced from AsciiDoc documents, so you can use 
 </div>
 </div>
 <div class="sect1">
-<h2 id="pdfs"><a class="anchor" href="#pdfs"></a>72. PDFs</h2>
+<h2 id="pdfs"><a class="anchor" href="#pdfs"></a>71. PDFs</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Conversion from AsciiDoc to PDF is made possible by a number of tools.</p>
@@ -19446,7 +18751,7 @@ More information about customization can be found in <a href="http://www.sagehil
 </div>
 </div>
 <div class="sect1">
-<h2 id="preview-your-content"><a class="anchor" href="#preview-your-content"></a>73. Preview Your Content</h2>
+<h2 id="preview-your-content"><a class="anchor" href="#preview-your-content"></a>72. Preview Your Content</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -19462,7 +18767,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/449">Issue 44
 </table>
 </div>
 <div class="sect2">
-<h3 id="guard-live-viewer"><a class="anchor" href="#guard-live-viewer"></a>73.1. Guard/Live Viewer</h3>
+<h3 id="guard-live-viewer"><a class="anchor" href="#guard-live-viewer"></a>72.1. Guard/Live Viewer</h3>
 <div class="paragraph">
 <p>Guard::AsciiDoc is a plugin for <a href="https://github.com/guard/guard">Guard</a> that renders watched AsciiDoc files to the specified output format whenever they change using Asciidoctor.</p>
 </div>
@@ -19473,7 +18778,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/449">Issue 44
 </div>
 </div>
 <div class="sect1">
-<h2 id="process-multiple-source-files-from-the-cli"><a class="anchor" href="#process-multiple-source-files-from-the-cli"></a>74. Process Multiple Source Files from the CLI</h2>
+<h2 id="process-multiple-source-files-from-the-cli"><a class="anchor" href="#process-multiple-source-files-from-the-cli"></a>73. Process Multiple Source Files from the CLI</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can pass multiple source files (or a file name pattern) to the Asciidoctor CLI and it will process all the files in turn.</p>
@@ -19551,7 +18856,7 @@ Asciidoctor can match files in the current directory and subfolders at any depth
 </div>
 </div>
 <div class="sect1">
-<h2 id="specifying-an-output-file"><a class="anchor" href="#specifying-an-output-file"></a>75. Specifying an Output File</h2>
+<h2 id="specifying-an-output-file"><a class="anchor" href="#specifying-an-output-file"></a>74. Specifying an Output File</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>asciidoctor</code> command writes to the specified output file if the input is <code>stdin</code>.</p>
@@ -19567,7 +18872,7 @@ Asciidoctor can match files in the current directory and subfolders at any depth
 </div>
 </div>
 <div class="sect1">
-<h2 id="running-asciidoctor-securely"><a class="anchor" href="#running-asciidoctor-securely"></a>76. Running Asciidoctor Securely</h2>
+<h2 id="running-asciidoctor-securely"><a class="anchor" href="#running-asciidoctor-securely"></a>75. Running Asciidoctor Securely</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Asciidoctor provides security levels that control the read and write access of attributes, the include directive, macros, and scripts while a document is processing.
@@ -19687,7 +18992,7 @@ Additionally, it:</p>
 <p>You can set Asciidoctor&#8217;s safe mode level using the CLI or API.</p>
 </div>
 <div class="sect2">
-<h3 id="set-the-safe-mode-in-the-cli"><a class="anchor" href="#set-the-safe-mode-in-the-cli"></a>76.1. Set the Safe Mode in the CLI</h3>
+<h3 id="set-the-safe-mode-in-the-cli"><a class="anchor" href="#set-the-safe-mode-in-the-cli"></a>75.1. Set the Safe Mode in the CLI</h3>
 <div class="paragraph">
 <p>When Asciidoctor is invoked via the CLI, the safe mode is set to <code>UNSAFE</code> by default.
 You can change the safe level by executing one of the following commands in the CLI.</p>
@@ -19707,7 +19012,7 @@ Provided for compatibility with the python AsciiDoc <code>safe</code> command.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-the-safe-mode-in-the-api"><a class="anchor" href="#set-the-safe-mode-in-the-api"></a>76.2. Set the Safe Mode in the API</h3>
+<h3 id="set-the-safe-mode-in-the-api"><a class="anchor" href="#set-the-safe-mode-in-the-api"></a>75.2. Set the Safe Mode in the API</h3>
 <div class="paragraph">
 <p>The default safe level in the API is <code>SECURE</code>.</p>
 </div>
@@ -19738,7 +19043,7 @@ The value must be set in the document constructor using the <code>:safe</code> o
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-attributes-based-on-the-safe-mode"><a class="anchor" href="#set-attributes-based-on-the-safe-mode"></a>76.3. Set Attributes Based on the Safe Mode</h3>
+<h3 id="set-attributes-based-on-the-safe-mode"><a class="anchor" href="#set-attributes-based-on-the-safe-mode"></a>75.3. Set Attributes Based on the Safe Mode</h3>
 <div class="paragraph">
 <p>You can enable or disable content within your document based on safe modes using the <code>safe-mode</code> attribute.</p>
 </div>
@@ -19786,7 +19091,7 @@ You can also create your own <a href="#custom-themes">themes</a> and <a href="#c
 </div>
 </div>
 <div class="sect1">
-<h2 id="custom-themes"><a class="anchor" href="#custom-themes"></a>77. Custom Themes</h2>
+<h2 id="custom-themes"><a class="anchor" href="#custom-themes"></a>76. Custom Themes</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -19801,7 +19106,7 @@ Section introduction pending
 </table>
 </div>
 <div class="sect2">
-<h3 id="creating-a-theme"><a class="anchor" href="#creating-a-theme"></a>77.1. Creating a Theme</h3>
+<h3 id="creating-a-theme"><a class="anchor" href="#creating-a-theme"></a>76.1. Creating a Theme</h3>
 <div class="paragraph">
 <p>You can create your own themes to apply to your documents.</p>
 </div>
@@ -19884,7 +19189,7 @@ The <code>awesome-icons</code> component is only applicable to HTML generated by
 </div>
 </div>
 <div class="sect2">
-<h3 id="applying-a-theme"><a class="anchor" href="#applying-a-theme"></a>77.2. Applying a Theme</h3>
+<h3 id="applying-a-theme"><a class="anchor" href="#applying-a-theme"></a>76.2. Applying a Theme</h3>
 <div class="paragraph">
 <p>A custom stylesheet can be stored in the same directory as your document or in a separate directory.
 And, like the default stylesheet, you can link your document to your custom stylesheet or embed it.
@@ -20053,7 +19358,7 @@ One way to solve this problem is to maintain the path to <code>stylesdir</code> 
 </div>
 </div>
 <div class="sect1">
-<h2 id="stylesheet-factory"><a class="anchor" href="#stylesheet-factory"></a>78. Stylesheet Factory</h2>
+<h2 id="stylesheet-factory"><a class="anchor" href="#stylesheet-factory"></a>77. Stylesheet Factory</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <a href="http://github.com/asciidoctor/asciidoctor-stylesheet-factory">Asciidoctor stylesheet factory</a> is where themes are developed for styling your documents.
@@ -20075,13 +19380,13 @@ The Asciidoctor stylesheet factory is only compatible with Asciidoctor 0.1.2 and
 </table>
 </div>
 <div class="sect2">
-<h3 id="setting-up-the-factory"><a class="anchor" href="#setting-up-the-factory"></a>78.1. Setting up the Factory</h3>
+<h3 id="setting-up-the-factory"><a class="anchor" href="#setting-up-the-factory"></a>77.1. Setting up the Factory</h3>
 <div class="paragraph">
 <p>The stylesheets in the Asciidoctor stylesheet factory are built using <a href="http://compass-style.org">Compass</a>, a CSS authoring framework that uses <a href="http://sass-lang.com">Sass</a> to generate CSS files.
 The styles and components are generated by <a href="http://foundation.zurb.com">Foundation 4</a>, an awesome and flexible CSS component framework that ensures your stylesheet is cross-browser and mobile friendly.</p>
 </div>
 <div class="sect3">
-<h4 id="install-the-gems"><a class="anchor" href="#install-the-gems"></a>78.1.1. Install the Gems</h4>
+<h4 id="install-the-gems"><a class="anchor" href="#install-the-gems"></a>77.1.1. Install the Gems</h4>
 <div class="paragraph">
 <p>In order to build the stylesheets, you must download the Asciidoctor stylesheet factory repository and install the Compass and Foundation gems.</p>
 </div>
@@ -20143,7 +19448,7 @@ $ gem install zurb-foundation --version 4.3.2</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="build-the-stylesheets"><a class="anchor" href="#build-the-stylesheets"></a>78.1.2. Build the Stylesheets</h4>
+<h4 id="build-the-stylesheets"><a class="anchor" href="#build-the-stylesheets"></a>77.1.2. Build the Stylesheets</h4>
 <div class="paragraph">
 <p>To build the stylesheets:</p>
 </div>
@@ -20169,7 +19474,7 @@ You can reference the stylesheets in <em class="path">stylesheets/</em> from you
 </div>
 </div>
 <div class="sect2">
-<h3 id="applying-a-stylesheet"><a class="anchor" href="#applying-a-stylesheet"></a>78.2. Applying a Stylesheet</h3>
+<h3 id="applying-a-stylesheet"><a class="anchor" href="#applying-a-stylesheet"></a>77.2. Applying a Stylesheet</h3>
 <div class="paragraph">
 <p>Let&#8217;s practice applying a stylesheet to a simple AsciiDoc file.</p>
 </div>
@@ -20204,7 +19509,7 @@ puts &quot;Hello, World!&quot;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generate-an-html-document"><a class="anchor" href="#generate-an-html-document"></a>78.3. Generate an HTML Document</h3>
+<h3 id="generate-an-html-document"><a class="anchor" href="#generate-an-html-document"></a>77.3. Generate an HTML Document</h3>
 <div class="paragraph">
 <p>Now it&#8217;s time to pick the stylesheet you want to apply to your content when it is rendered.
 In your file browser, navigate to the <em class="path">stylesheets/</em> directory.
@@ -20283,7 +19588,7 @@ To apply these themes to your document correctly, the applicable images must be 
 </div>
 </div>
 <div class="sect2">
-<h3 id="external-preview"><a class="anchor" href="#external-preview"></a>78.4. External Preview</h3>
+<h3 id="external-preview"><a class="anchor" href="#external-preview"></a>77.4. External Preview</h3>
 <div class="paragraph">
 <p>You may want to preview sample HTML files on another computer or device.
 To do that, you need to serve them through a web server.
@@ -20308,7 +19613,7 @@ You can quickly serve HTML files in the root directory of the project using the 
 </div>
 </div>
 <div class="sect1">
-<h2 id="slideshows"><a class="anchor" href="#slideshows"></a>79. Slideshows</h2>
+<h2 id="slideshows"><a class="anchor" href="#slideshows"></a>78. Slideshows</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The conversion to HTML-based slides is handled by a custom backend.
@@ -20321,12 +19626,12 @@ Asciidoctor has backends for generating dzslides and reveal.js presentations as 
 Backends for other presentation frameworks are in the works.</p>
 </div>
 <div class="sect2">
-<h3 id="deckjs"><a class="anchor" href="#deckjs"></a>79.1. Deck.js</h3>
+<h3 id="deckjs"><a class="anchor" href="#deckjs"></a>78.1. Deck.js</h3>
 <div class="paragraph">
 <p>The <a href="http://github.com/asciidoctor/asciidoctor-backends">deck.js backend</a> for Asciidoctor is a collection of Haml templates that transform an AsciiDoc document to HTML 5-based slides animated by <a href="http://imakewebthings.com/deck.js">deck.js</a>.</p>
 </div>
 <div class="sect3">
-<h4 id="gem-requirements"><a class="anchor" href="#gem-requirements"></a>79.1.1. Gem Requirements</h4>
+<h4 id="gem-requirements"><a class="anchor" href="#gem-requirements"></a>78.1.1. Gem Requirements</h4>
 <div class="paragraph">
 <p>The Asciidoctor deck.js backend requires the following gems:</p>
 </div>
@@ -20364,7 +19669,7 @@ Backends for other presentation frameworks are in the works.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="backend-and-deck-js-installation"><a class="anchor" href="#backend-and-deck-js-installation"></a>79.1.2. Backend and deck.js Installation</h4>
+<h4 id="backend-and-deck-js-installation"><a class="anchor" href="#backend-and-deck-js-installation"></a>78.1.2. Backend and deck.js Installation</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -20396,7 +19701,7 @@ Backends for other presentation frameworks are in the works.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deckjs-backend-attributes"><a class="anchor" href="#deckjs-backend-attributes"></a>79.1.3. Deckjs Backend Attributes</h4>
+<h4 id="deckjs-backend-attributes"><a class="anchor" href="#deckjs-backend-attributes"></a>78.1.3. Deckjs Backend Attributes</h4>
 <div class="paragraph">
 <p>There are a number of document attributes specific to the <code>deckjs</code> backend.</p>
 </div>
@@ -20490,7 +19795,7 @@ Presenter Name
 </div>
 </div>
 <div class="sect3">
-<h4 id="slide-syntax-examples"><a class="anchor" href="#slide-syntax-examples"></a>79.1.4. Slide syntax Examples</h4>
+<h4 id="slide-syntax-examples"><a class="anchor" href="#slide-syntax-examples"></a>78.1.4. Slide syntax Examples</h4>
 <div class="paragraph">
 <p>Structuring a slideshow and writing the slide content uses the same syntax as a typical AsciiDoc document, with a few added features.</p>
 </div>
@@ -20631,7 +19936,7 @@ once the document is rendered.</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="rendering"><a class="anchor" href="#rendering"></a>79.1.5. Rendering</h4>
+<h4 id="rendering"><a class="anchor" href="#rendering"></a>78.1.5. Rendering</h4>
 <div class="paragraph">
 <p>To render your presentation as HTML5, execute the command:</p>
 </div>
@@ -20655,7 +19960,7 @@ once the document is rendered.</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="custom-backends"><a class="anchor" href="#custom-backends"></a>80. Custom Backends</h2>
+<h2 id="custom-backends"><a class="anchor" href="#custom-backends"></a>79. Custom Backends</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -20671,7 +19976,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/451">Issue 45
 </table>
 </div>
 <div class="sect2">
-<h3 id="creating-a-backend"><a class="anchor" href="#creating-a-backend"></a>80.1. Creating a Backend</h3>
+<h3 id="creating-a-backend"><a class="anchor" href="#creating-a-backend"></a>79.1. Creating a Backend</h3>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -20686,7 +19991,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/452">Issue 45
 </table>
 </div>
 <div class="sect3">
-<h4 id="storing-multiple-templates"><a class="anchor" href="#storing-multiple-templates"></a>80.1.1. Storing Multiple Templates</h4>
+<h4 id="storing-multiple-templates"><a class="anchor" href="#storing-multiple-templates"></a>79.1.1. Storing Multiple Templates</h4>
 <div class="paragraph">
 <p>Custom templates can be stored in multiple directories.
 That means you can build on an existing backend by copying only the templates you want to modify.
@@ -20714,7 +20019,7 @@ Then, just pass both the directory holding the original templates and the direct
 </div>
 </div>
 <div class="sect1">
-<h2 id="language-support"><a class="anchor" href="#language-support"></a>81. Using Asciidoctor with Other Languages</h2>
+<h2 id="language-support"><a class="anchor" href="#language-support"></a>80. Using Asciidoctor with Other Languages</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Asciidoctor defaults to English for built-in labels, messages and syntax keywords.
@@ -20746,7 +20051,7 @@ In the interim, you can leverage the DocBook toolchain to get right-to-left supp
 </ul>
 </div>
 <div class="sect2">
-<h3 id="customizing-labels"><a class="anchor" href="#customizing-labels"></a>81.1. Customizing built-in labels</h3>
+<h3 id="customizing-labels"><a class="anchor" href="#customizing-labels"></a>80.1. Customizing built-in labels</h3>
 <div class="paragraph">
 <p>If you&#8217;re creating DocBook output, you can rely on the DocBook toolchain to translate (most) built-in labels.
 To activate this feature, simply set the <code>lang</code> attribute to a valid country code (which defaults to <code>en</code> for English).
@@ -20888,7 +20193,7 @@ Input is welome.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="translation"><a class="anchor" href="#translation"></a>81.2. Translation</h3>
+<h3 id="translation"><a class="anchor" href="#translation"></a>80.2. Translation</h3>
 <div class="paragraph">
 <p>Asciidoctor (or DocBook) currently does not support translation out of the box.
 There&#8217;s a proposal to integrate gettext (<a href="http://discuss.asciidoctor.org/Professional-providers-translating-Asciidoc-tt2692.html#none">discussion</a>), but all suggestions are welcome.</p>
@@ -20903,7 +20208,7 @@ NOTE: Section pending
 </div>
 </div>
 <div class="sect1">
-<h2 id="repositories"><a class="anchor" href="#repositories"></a>82. Repositories</h2>
+<h2 id="repositories"><a class="anchor" href="#repositories"></a>81. Repositories</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -20921,7 +20226,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/453">Issue 45
 </div>
 </div>
 <div class="sect1">
-<h2 id="static-website-generators"><a class="anchor" href="#static-website-generators"></a>83. Static Website Generators</h2>
+<h2 id="static-website-generators"><a class="anchor" href="#static-website-generators"></a>82. Static Website Generators</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -20937,7 +20242,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/454">Issue 45
 </table>
 </div>
 <div class="sect2">
-<h3 id="front-matter-added-for-static-site-generators"><a class="anchor" href="#front-matter-added-for-static-site-generators"></a>83.1. Front Matter Added for Static Site Generators</h3>
+<h3 id="front-matter-added-for-static-site-generators"><a class="anchor" href="#front-matter-added-for-static-site-generators"></a>82.1. Front Matter Added for Static Site Generators</h3>
 <div class="paragraph">
 <p>Many static site generators (i.e., Jekyll, Middleman, Awestruct) rely on "front matter" added to the top of the document to determine how to render the content.
 Front matter typically starts on the first line of a file and is bounded by block delimiters (e.g., ---).</p>
@@ -20989,7 +20294,7 @@ Awestruct can read front matter directly from AsciiDoc attributes defined in the
 </table>
 </div>
 <div class="sect3">
-<h4 id="configuring-attributes-for-awestruct"><a class="anchor" href="#configuring-attributes-for-awestruct"></a>83.1.1. Configuring Attributes for Awestruct</h4>
+<h4 id="configuring-attributes-for-awestruct"><a class="anchor" href="#configuring-attributes-for-awestruct"></a>82.1.1. Configuring Attributes for Awestruct</h4>
 <div class="paragraph">
 <p>Awestruct defines a set of default attributes that it passes to the API in its <em class="path">/default-site.yml</em> file.
 One of the attributes in that configuration is <code>imagesdir</code>.
@@ -21050,7 +20355,7 @@ See the <a href="/docs/asciidoctorj">AsciidoctorJ project</a> for more informati
 </div>
 </div>
 <div class="sect1">
-<h2 id="load-and-render-a-file-using-the-api"><a class="anchor" href="#load-and-render-a-file-using-the-api"></a>84. Load and Render a File Using the API</h2>
+<h2 id="load-and-render-a-file-using-the-api"><a class="anchor" href="#load-and-render-a-file-using-the-api"></a>83. Load and Render a File Using the API</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To use Asciidoctor in your application, you first need to require the gem:</p>
@@ -21103,7 +20408,7 @@ To render a file containing AsciiDoc markup to HTML 5, use:</p>
 If you&#8217;re on Linux, you can view the file using <a href="https://wiki.gnome.org/action/show/Apps/Yelp">Yelp</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="render-strings"><a class="anchor" href="#render-strings"></a>84.1. Render Strings</h3>
+<h3 id="render-strings"><a class="anchor" href="#render-strings"></a>83.1. Render Strings</h3>
 <div class="paragraph">
 <p>To render an AsciiDoc-formatted string:</p>
 </div>
@@ -21151,7 +20456,7 @@ Any of it!</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="provide-custom-templates"><a class="anchor" href="#provide-custom-templates"></a>85. Provide Custom Templates</h2>
+<h2 id="provide-custom-templates"><a class="anchor" href="#provide-custom-templates"></a>84. Provide Custom Templates</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Asciidoctor allows you to override the converter methods used to render almost any individual AsciiDoc element.
@@ -21232,7 +20537,7 @@ Just keep in mind that you may need to rework parts of your extensions when you 
 </div>
 </div>
 <div class="sect1">
-<h2 id="extension-points"><a class="anchor" href="#extension-points"></a>86. Extension Points</h2>
+<h2 id="extension-points"><a class="anchor" href="#extension-points"></a>85. Extension Points</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Here are the extension points that are available in Asciidoctor 0.1.4.</p>
@@ -21319,13 +20624,13 @@ Look for that feature in a future Asciidoctor release.
 </div>
 </div>
 <div class="sect1">
-<h2 id="example-extensions"><a class="anchor" href="#example-extensions"></a>87. Example Extensions</h2>
+<h2 id="example-extensions"><a class="anchor" href="#example-extensions"></a>86. Example Extensions</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Below are several examples of extensions and how they are registered.</p>
 </div>
 <div class="sect2">
-<h3 id="preprocessor-example"><a class="anchor" href="#preprocessor-example"></a>87.1. Preprocessor Example</h3>
+<h3 id="preprocessor-example"><a class="anchor" href="#preprocessor-example"></a>86.1. Preprocessor Example</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -21397,7 +20702,7 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <div class="sect2">
-<h3 id="treeprocessor-example"><a class="anchor" href="#treeprocessor-example"></a>87.2. Treeprocessor Example</h3>
+<h3 id="treeprocessor-example"><a class="anchor" href="#treeprocessor-example"></a>86.2. Treeprocessor Example</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -21469,7 +20774,7 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <div class="sect2">
-<h3 id="postprocessor-example"><a class="anchor" href="#postprocessor-example"></a>87.3. Postprocessor Example</h3>
+<h3 id="postprocessor-example"><a class="anchor" href="#postprocessor-example"></a>86.3. Postprocessor Example</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -21508,7 +20813,7 @@ Asciidoctor.convert_file 'sample-with-copyright-footer.adoc', :safe =&gt; :safe<
 </div>
 </div>
 <div class="sect2">
-<h3 id="block-processor-example"><a class="anchor" href="#block-processor-example"></a>87.4. Block Processor Example</h3>
+<h3 id="block-processor-example"><a class="anchor" href="#block-processor-example"></a>86.4. Block Processor Example</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -21559,7 +20864,7 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <div class="sect2">
-<h3 id="block-macro-processor-example"><a class="anchor" href="#block-macro-processor-example"></a>87.5. Block Macro Processor Example</h3>
+<h3 id="block-macro-processor-example"><a class="anchor" href="#block-macro-processor-example"></a>86.5. Block Macro Processor Example</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -21613,7 +20918,7 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <div class="sect2">
-<h3 id="inline-macro-processor-example"><a class="anchor" href="#inline-macro-processor-example"></a>87.6. Inline Macro Processor Example</h3>
+<h3 id="inline-macro-processor-example"><a class="anchor" href="#inline-macro-processor-example"></a>86.6. Inline Macro Processor Example</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -21667,7 +20972,7 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <div class="sect2">
-<h3 id="include-processor-example"><a class="anchor" href="#include-processor-example"></a>87.7. Include Processor Example</h3>
+<h3 id="include-processor-example"><a class="anchor" href="#include-processor-example"></a>86.7. Include Processor Example</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -21743,7 +21048,7 @@ NOTE: Section pending
 </div>
 </div>
 <div class="sect1">
-<h2 id="java"><a class="anchor" href="#java"></a>88. Java</h2>
+<h2 id="java"><a class="anchor" href="#java"></a>87. Java</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -21761,7 +21066,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/455">Issue 45
 </div>
 </div>
 <div class="sect1">
-<h2 id="gradle"><a class="anchor" href="#gradle"></a>89. Gradle</h2>
+<h2 id="gradle"><a class="anchor" href="#gradle"></a>88. Gradle</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -21779,7 +21084,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/456">Issue 45
 </div>
 </div>
 <div class="sect1">
-<h2 id="maven"><a class="anchor" href="#maven"></a>90. Maven</h2>
+<h2 id="maven"><a class="anchor" href="#maven"></a>89. Maven</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -21797,7 +21102,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/457">Issue 45
 </div>
 </div>
 <div class="sect1">
-<h2 id="apache-ant"><a class="anchor" href="#apache-ant"></a>91. Apache Ant</h2>
+<h2 id="apache-ant"><a class="anchor" href="#apache-ant"></a>90. Apache Ant</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>asciidoctor-ant</code> task is an all-in-one solution for running Asciidoctor from Ant.
@@ -21826,7 +21131,7 @@ It is based on AsciidoctorJ and JRuby, both of which are encapsulated in a singl
 </div>
 </div>
 <div class="sect1">
-<h2 id="javadoc"><a class="anchor" href="#javadoc"></a>92. JavaDoc</h2>
+<h2 id="javadoc"><a class="anchor" href="#javadoc"></a>91. JavaDoc</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -21844,7 +21149,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/458">Issue 45
 </div>
 </div>
 <div class="sect1">
-<h2 id="javascript"><a class="anchor" href="#javascript"></a>93. JavaScript</h2>
+<h2 id="javascript"><a class="anchor" href="#javascript"></a>92. JavaScript</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -21862,7 +21167,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/459">Issue 45
 </div>
 </div>
 <div class="sect1">
-<h2 id="yard"><a class="anchor" href="#yard"></a>94. Yard</h2>
+<h2 id="yard"><a class="anchor" href="#yard"></a>93. Yard</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -21880,7 +21185,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/460">Issue 46
 </div>
 </div>
 <div class="sect1">
-<h2 id="rdoc"><a class="anchor" href="#rdoc"></a>95. Rdoc</h2>
+<h2 id="rdoc"><a class="anchor" href="#rdoc"></a>94. Rdoc</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -21909,7 +21214,7 @@ In addition to differences in the syntax, many of the sections also suggest tool
 </div>
 </div>
 <div class="sect1">
-<h2 id="migrating-from-asciidoc-python"><a class="anchor" href="#migrating-from-asciidoc-python"></a>96. Migrating from AsciiDoc Python</h2>
+<h2 id="migrating-from-asciidoc-python"><a class="anchor" href="#migrating-from-asciidoc-python"></a>95. Migrating from AsciiDoc Python</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The purpose of this section is to help you migrate legacy AsciiDoc documents written for AsciiDoc Python to the modern AsciiDoc syntax supported by Asciidoctor and to learn about equivalent tools and extensions.</p>
@@ -21932,7 +21237,7 @@ The content assumes you&#8217;ve already updated any content that is deprecated 
 </table>
 </div>
 <div class="sect2">
-<h3 id="command-line-interface"><a class="anchor" href="#command-line-interface"></a>96.1. Command Line Interface</h3>
+<h3 id="command-line-interface"><a class="anchor" href="#command-line-interface"></a>95.1. Command Line Interface</h3>
 <div class="paragraph">
 <p>Asciidoctor was designed from the outset to be a (must faster) drop-in replacement for AsciiDoc Python.
 For most documents, you can simply replace the call to AsciiDoc Python:</p>
@@ -21966,7 +21271,7 @@ Keep in mind you can also run Asciidoctor on the JVM using <a href="https://gith
 </table>
 </div>
 <div class="sect3">
-<h4 id="help"><a class="anchor" href="#help"></a>96.1.1. Help</h4>
+<h4 id="help"><a class="anchor" href="#help"></a>95.1.1. Help</h4>
 <div class="paragraph">
 <p>AsciiDoc Python has <code>--help syntax</code> to show a syntax cheatsheet, and <code>--help manpage</code> to show the command usage as a Linux manpage.
 Asciidoctor only has <code>--help</code>, which shows the command usage.</p>
@@ -21995,14 +21300,14 @@ Asciidoctor only has <code>--help</code>, which shows the command usage.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="configuration-files"><a class="anchor" href="#configuration-files"></a>96.1.2. Configuration Files</h4>
+<h4 id="configuration-files"><a class="anchor" href="#configuration-files"></a>95.1.2. Configuration Files</h4>
 <div class="paragraph">
 <p>Asciidoctor does not use .conf files or filters, so <code>--conf-file</code>, <code>--dump-conf</code>, and <code>--filter</code> are not implemented.
 Asciidoctor provides an <a href="#extensions">extension API</a> that replaces the configuration-based extension and filter mechanisms in AsciiDoc Python.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="internationalization"><a class="anchor" href="#internationalization"></a>96.1.3. Internationalization</h4>
+<h4 id="internationalization"><a class="anchor" href="#internationalization"></a>95.1.3. Internationalization</h4>
 <div class="paragraph">
 <p>AsciiDoc Python has built-in .conf files that are used to translate built-in labels.
 You load the .conf file for a given language by setting the <code>lang</code> attribute to a supported language code (e.g., <code>-a lang=&lt;language code&gt;</code>).
@@ -22011,7 +21316,7 @@ See <a href="#language-support">Using Asciidoctor with Other Languages</a> for d
 </div>
 </div>
 <div class="sect3">
-<h4 id="themes"><a class="anchor" href="#themes"></a>96.1.4. Themes</h4>
+<h4 id="themes"><a class="anchor" href="#themes"></a>95.1.4. Themes</h4>
 <div class="paragraph">
 <p>AsciiDoc Python provides a theming mechanism that encapsulates CSS, JavaScript and images.
 The <code>--theme</code> option activates one of these themes, which is resolved from your home directory.
@@ -22022,7 +21327,7 @@ In Asciidoctor, you control the theme using CSS (i.e., a stylesheet) only, which
 </div>
 </div>
 <div class="sect3">
-<h4 id="default-html-backend"><a class="anchor" href="#default-html-backend"></a>96.1.5. Default HTML Backend</h4>
+<h4 id="default-html-backend"><a class="anchor" href="#default-html-backend"></a>95.1.5. Default HTML Backend</h4>
 <div class="paragraph">
 <p>AsciiDoc Python uses XHTML 1.1 as its default output (the xhtml11 backend), though it supports HTML5 output as well (the html5 backend).
 Asciidoctor defaults to creating HTML5 output (the html5 backend), which closely adheres to the backend by the same name in AsciiDoc Python.
@@ -22030,7 +21335,7 @@ The web has moved forward since AsciiDoc Python was created, so the switch to HT
 </div>
 </div>
 <div class="sect3">
-<h4 id="doctest"><a class="anchor" href="#doctest"></a>96.1.6. Doctest</h4>
+<h4 id="doctest"><a class="anchor" href="#doctest"></a>95.1.6. Doctest</h4>
 <div class="paragraph">
 <p>AsciiDoc Python <code>--doctest</code> runs units tests.
 See <a href="https://github.com/asciidoctor/asciidoctor/tree/master/test">Tests</a> for how to run the Asciidoctor unit tests.</p>
@@ -22041,7 +21346,7 @@ See <a href="https://github.com/asciidoctor/asciidoctor/tree/master/test">Tests<
 </div>
 </div>
 <div class="sect2">
-<h3 id="changed-syntax"><a class="anchor" href="#changed-syntax"></a>96.2. Changed Syntax</h3>
+<h3 id="changed-syntax"><a class="anchor" href="#changed-syntax"></a>95.2. Changed Syntax</h3>
 <div class="paragraph">
 <p>These changes are not backward-compatible, but if you set the <code>compat-mode</code> attribute, Asciidoctor will accept the AsciiDoc Python syntax.
 For the long term, you should update to the Asciidoctor syntax.
@@ -22153,7 +21458,7 @@ See <a href="#ifeval-directive">ifeval directive</a>.</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="migrate-deprecated"><a class="anchor" href="#migrate-deprecated"></a>96.3. Deleted and Deprecated Syntax and Attributes</h3>
+<h3 id="migrate-deprecated"><a class="anchor" href="#migrate-deprecated"></a>95.3. Deleted and Deprecated Syntax and Attributes</h3>
 <div class="paragraph">
 <p>These are attributes that either no longer exist, work differently, or have better alternatives.</p>
 </div>
@@ -22274,7 +21579,7 @@ See <a href="#normalize-block-indentation">Normalize Block Indentation</a> for m
 </table>
 </div>
 <div class="sect2">
-<h3 id="migrate-stylesheet"><a class="anchor" href="#migrate-stylesheet"></a>96.4. Default HTML Stylesheet</h3>
+<h3 id="migrate-stylesheet"><a class="anchor" href="#migrate-stylesheet"></a>95.4. Default HTML Stylesheet</h3>
 <div class="paragraph">
 <p>You&#8217;ll notice that the AsciiDoc Python and Asciidoctor stylesheets look quite different.
 However, they are compatible (for the most part) since the formatting is based on the same HTML structure and CSS classes.
@@ -22316,7 +21621,7 @@ There are similar attributes to control how additional resources are resolved.
 </div>
 </div>
 <div class="sect2">
-<h3 id="mathematical-expressions"><a class="anchor" href="#mathematical-expressions"></a>96.5. Mathematical Expressions</h3>
+<h3 id="mathematical-expressions"><a class="anchor" href="#mathematical-expressions"></a>95.5. Mathematical Expressions</h3>
 <div class="paragraph">
 <p>Both AsciiDoc Python and Asciidoctor can convert embedded LaTeX and AsciiMath expressions (e.g., <code>asciimath:[expression]</code>, <code>latexmath:[expression]</code>, etc), but with Asciidoctor you need to activate STEM support first using the <code>stem</code> attribute (see <a href="#activating-stem-support">Activating stem support</a>).</p>
 </div>
@@ -22327,7 +21632,7 @@ See <a href="#stem-bl">Block Stem Content</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrate-extensions"><a class="anchor" href="#migrate-extensions"></a>96.6. AsciiDoc Python Extensions</h3>
+<h3 id="migrate-extensions"><a class="anchor" href="#migrate-extensions"></a>95.6. AsciiDoc Python Extensions</h3>
 <div class="paragraph">
 <p>The extension mechanism is completely different in Asciidoctor, but the &#8216;standard&#8217; extensions have been re-implemented, so they should work with minor changes.</p>
 </div>
@@ -22376,16 +21681,16 @@ See <a href="#stem-bl">Block Stem Content</a>.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="custom-extensions"><a class="anchor" href="#custom-extensions"></a>96.7. Custom Extensions</h3>
+<h3 id="custom-extensions"><a class="anchor" href="#custom-extensions"></a>95.7. Custom Extensions</h3>
 <div class="paragraph">
 <p>AsciiDoc Python custom extensions will not work with Asciidoctor because AsciiDoc Python extensions are essentially Python commands, and the Asciidoctor extensions are Ruby (or Java) classes.
 To re-write your extensions, see <a href="#extensions">Extensions</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="features-introduced-by-asciidoctor"><a class="anchor" href="#features-introduced-by-asciidoctor"></a>96.8. Features Introduced by Asciidoctor</h3>
+<h3 id="features-introduced-by-asciidoctor"><a class="anchor" href="#features-introduced-by-asciidoctor"></a>95.8. Features Introduced by Asciidoctor</h3>
 <div class="sect3">
-<h4 id="new-syntax"><a class="anchor" href="#new-syntax"></a>96.8.1. New Syntax</h4>
+<h4 id="new-syntax"><a class="anchor" href="#new-syntax"></a>95.8.1. New Syntax</h4>
 <div class="paragraph">
 <p>Asciidoctor has shorthand for id, role, style and options.
 See <a href="#setting-attributes-on-an-element">Setting Attributes on an Element</a> for details.</p>
@@ -22412,7 +21717,7 @@ See <a href="#setting-attributes-on-an-element">Setting Attributes on an Element
 </div>
 </div>
 <div class="sect3">
-<h4 id="enhancements"><a class="anchor" href="#enhancements"></a>96.8.2. Enhancements</h4>
+<h4 id="enhancements"><a class="anchor" href="#enhancements"></a>95.8.2. Enhancements</h4>
 <div class="paragraph">
 <p>There are lots of new features and improvements Asciidoctor.
 These are some of the more interesting ones when migrating:</p>
@@ -22438,7 +21743,7 @@ These are some of the more interesting ones when migrating:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="recommended-practices"><a class="anchor" href="#recommended-practices"></a>96.8.3. Recommended Practices</h4>
+<h4 id="recommended-practices"><a class="anchor" href="#recommended-practices"></a>95.8.3. Recommended Practices</h4>
 <div class="paragraph">
 <p>See the <a href="http://asciidoctor.org/docs/asciidoc-recommended-practices/">AsciiDoc Style Guide and Recommended Practices</a> for ways to make your documents clearer and more consistent.</p>
 </div>
@@ -22447,7 +21752,7 @@ These are some of the more interesting ones when migrating:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="convert-docbook-xml-to-asciidoc"><a class="anchor" href="#convert-docbook-xml-to-asciidoc"></a>97. Convert DocBook XML to AsciiDoc</h2>
+<h2 id="convert-docbook-xml-to-asciidoc"><a class="anchor" href="#convert-docbook-xml-to-asciidoc"></a>96. Convert DocBook XML to AsciiDoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>One of the things Asciidoctor excels at is converting AsciiDoc source into valid and well-formed DocBook XML content.</p>
@@ -22472,7 +21777,7 @@ Use it today to escape from XML hell!</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="convert-markdown-to-asciidoc"><a class="anchor" href="#convert-markdown-to-asciidoc"></a>98. Convert Markdown to AsciiDoc</h2>
+<h2 id="convert-markdown-to-asciidoc"><a class="anchor" href="#convert-markdown-to-asciidoc"></a>97. Convert Markdown to AsciiDoc</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -22490,7 +21795,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/462">Issue 46
 </div>
 </div>
 <div class="sect1">
-<h2 id="convert-confluence-xhtml-to-asciidoc"><a class="anchor" href="#convert-confluence-xhtml-to-asciidoc"></a>99. Convert Confluence XHTML to AsciiDoc</h2>
+<h2 id="convert-confluence-xhtml-to-asciidoc"><a class="anchor" href="#convert-confluence-xhtml-to-asciidoc"></a>98. Convert Confluence XHTML to AsciiDoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can convert Atlassian Confluence XHTML pages to Asciidoctor using this <a href="http://www.groovy-lang.org/download.html">Groovy</a> script.</p>
@@ -22595,7 +21900,7 @@ NOTE: Section pending
 </div>
 </div>
 <div class="sect1">
-<h2 id="copyright-and-license"><a class="anchor" href="#copyright-and-license"></a>100. Copyright and License</h2>
+<h2 id="copyright-and-license"><a class="anchor" href="#copyright-and-license"></a>99. Copyright and License</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Copyright &#169; 2012-2014 Dan Allen and Ryan Waldron.
@@ -22607,7 +21912,7 @@ Free use of this software is granted under the terms of the MIT License.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="authors"><a class="anchor" href="#authors"></a>101. Authors</h2>
+<h2 id="authors"><a class="anchor" href="#authors"></a>100. Authors</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Asciidoctor</strong> was written by <a href="https://github.com/mojavelinux">Dan Allen</a>, <a href="https://github.com/erebor">Ryan Waldron</a>, <a href="https://github.com/lightguard">Jason Porter</a>, <a href="http://github.com/nickh">Nick Hengeveld</a> and <a href="https://github.com/asciidoctor/asciidoctor/graphs/contributors">other contributors</a>.</p>
@@ -22622,7 +21927,7 @@ Refer to the commit history of <a href="https://github.com/github/gitscm-next/co
 </div>
 </div>
 <div class="sect1">
-<h2 id="troubleshoot"><a class="anchor" href="#troubleshoot"></a>102. Troubleshooting</h2>
+<h2 id="troubleshoot"><a class="anchor" href="#troubleshoot"></a>101. Troubleshooting</h2>
 <div class="sectionbody">
 <div class="qlist qanda">
 <ol>
@@ -22706,7 +22011,7 @@ However, when you use this approach, Asciidoctor won&#8217;t recognize it as a U
 </div>
 </div>
 <div class="sect1">
-<h2 id="glossary"><a class="anchor" href="#glossary"></a>103. Glossary</h2>
+<h2 id="glossary"><a class="anchor" href="#glossary"></a>102. Glossary</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -23453,7 +22758,7 @@ Also used as a fallback when the document title is not specified.
 <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">(+/-)0&#8211;5. (A leading + or - makes it relative).</p></td>
 <td class="tableblock halign-center valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#relative-leveloffset">Relative Leveloffset</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#relative-leveloffset">[relative-leveloffset]</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sectanchors</p></td>
@@ -24918,7 +24223,7 @@ If it is a URI and <code>-a allow-uri-read</code> is set, does it exist?</p></td
 <td class="tableblock halign-left valign-top"><p class="tableblock">WARNING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;docname&gt; include file not found: &lt;file&gt;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Probably a typo or missing file. If not, make sure you understand the search process.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#include-directive-2">Include Directive</a>, <a href="#include-resolution">File resolution</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#include-directive-2">[include-directive-2]</a>, <a href="#include-resolution">File resolution</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">WARNING</p></td>
@@ -24970,7 +24275,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-12-04 02:51:03 UTC
+Last updated 2016-12-04 03:15:29 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
