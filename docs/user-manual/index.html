@@ -817,12 +817,13 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#ifeval-directive">51.4. ifeval directive</a></li>
 </ul>
 </li>
-<li><a href="#docinfo-file">52. Docinfo File</a>
+<li><a href="#docinfo-file">52. Docinfo Files</a>
 <ul class="sectlevel2">
-<li><a href="#create-a-docinfo-file">52.1. Create a docinfo file</a></li>
-<li><a href="#docinfo-attributes-and-file-names">52.2. Docinfo attributes and file names</a></li>
-<li><a href="#footer-docinfo-files">52.3. Footer docinfo files</a></li>
-<li><a href="#attribute-substitution">52.4. Attribute substitution</a></li>
+<li><a href="#head-docinfo-files">52.1. Head docinfo files</a></li>
+<li><a href="#footer-docinfo-files">52.2. Footer docinfo files</a></li>
+<li><a href="#naming-docinfo-files">52.3. Naming docinfo files</a></li>
+<li><a href="#locating-docinfo-files">52.4. Locating docinfo files</a></li>
+<li><a href="#attribute-substitution-in-docinfo-files">52.5. Attribute substitution in docinfo files</a></li>
 </ul>
 </li>
 <li><a href="#counters">53. Counters</a></li>
@@ -16578,16 +16579,24 @@ The operators follow the same rules as operators in Ruby.
 </div>
 </div>
 <div class="sect1">
-<h2 id="docinfo-file"><a class="anchor" href="#docinfo-file"></a>52. Docinfo File</h2>
+<h2 id="docinfo-file"><a class="anchor" href="#docinfo-file"></a>52. Docinfo Files</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can add custom content to the header or footer of a document with document information (<code>docinfo</code>) files.
-The docinfo file&#8217;s content and file extension depends on whether the source document&#8217;s output is HTML or DocBook.</p>
+<p>You can add custom content to the head or footer of an output document using docinfo files.
+Docinfo files are useful for injecting auxiliary metadata, stylesheet, and script information into the output not added by the converter.</p>
+</div>
+<div class="paragraph">
+<p>Different docinfo files get used depending on whether you are converting to HTML or DocBook (but don&#8217;t yet apply when converting to PDF).</p>
 </div>
 <div class="sect2">
-<h3 id="create-a-docinfo-file"><a class="anchor" href="#create-a-docinfo-file"></a>52.1. Create a docinfo file</h3>
+<h3 id="head-docinfo-files"><a class="anchor" href="#head-docinfo-files"></a>52.1. Head docinfo files</h3>
 <div class="paragraph">
-<p>When the source document will be rendered to HTML, the docinfo file can contain the elements allowed in an HTML <code>&lt;HEAD&gt;</code> section, including:</p>
+<p>The content of head docinfo files gets injected into the top of the document.
+For HTML, the content is append to the <code>&lt;head&gt;</code> element.
+For DocBook, the content is appended to the root <code>&lt;info&gt;</code> element.</p>
+</div>
+<div class="paragraph">
+<p>The docinfo file for HTML output may contain valid elements to populate the HTML <code>&lt;head&gt;</code> element, including:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -16609,29 +16618,41 @@ The docinfo file&#8217;s content and file extension depends on whether the sourc
 <li>
 <p><code>&lt;style&gt;</code></p>
 </li>
-<li>
-<p><code>&lt;title&gt;</code></p>
-</li>
 </ul>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Use of the <code>&lt;title&gt;</code> element is not recommend as it&#8217;s already emitted by the converter.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>As seen in the example below, docinfo files are useful for storing metadata, stylesheet, and script information.
-Note that you do not need to include the <code>&lt;head&gt;</code> tag, nor is the <code>&lt;title&gt;</code> tag required.</p>
+<p>You do not need to include the enclosing <code>&lt;head&gt;</code> tag as it&#8217;s assumed to be the envelop.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example:</p>
 </div>
 <div class="listingblock">
-<div class="title">A docinfo file for HTML output</div>
+<div class="title">A head docinfo file for HTML output</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="html"><span class="tag">&lt;meta</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keywords</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">content</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">open source, documentation</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-<span class="tag">&lt;meta</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">description</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">content</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">The dangerous and thrilling adventures of an open source documentation team.</span></span><span class="error">&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">description</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">content</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">The dangerous and thrilling adventures of an open source documentation team.</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
 <span class="tag">&lt;link</span> <span class="attribute-name">rel</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">basejump.css</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
 <span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">map.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Docinfo files for HTML output must be saved with the <code>.html</code> file extension.</p>
+<p>Docinfo files for HTML output must be saved with the <code>.html</code> file extension.
+See <a href="#naming-docinfo-files">Naming docinfo files</a> for more details.</p>
 </div>
 <div class="paragraph">
-<p>When DocBook 5.0 is the rendered output, the docinfo file may include any of the <a href="http://www.docbook.org/tdg5/en/html/info.html">&lt;info&gt; element&#8217;s 48 children</a>, such as:</p>
+<p>The docinfo file for DocBook 5.0 output may include any of the <a href="http://www.docbook.org/tdg5/en/html/info.html"><code>&lt;info&gt;</code> element&#8217;s children</a>, such as:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -16652,6 +16673,9 @@ Note that you do not need to include the <code>&lt;head&gt;</code> tag, nor is t
 </li>
 <li>
 <p><code>&lt;subtitle&gt;</code></p>
+</li>
+<li>
+<p><code>&lt;revhistory&gt;</code></p>
 </li>
 </ul>
 </div>
@@ -16678,148 +16702,24 @@ Note that you do not need to include the <code>&lt;head&gt;</code> tag, nor is t
 <span class="tag">&lt;/keywordset&gt;</span>
 
 <span class="tag">&lt;printhistory&gt;</span>
-  <span class="tag">&lt;para&gt;</span>April, 2019. Twenty-sixth printing.
-  <span class="tag">&lt;/para&gt;</span>
+  <span class="tag">&lt;para&gt;</span>April, 2019. Twenty-sixth printing.<span class="tag">&lt;/para&gt;</span>
 <span class="tag">&lt;/printhistory&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Docinfo files for DocBook output must be saved with the <code>.xml</code> file extension.
-To see another example of a docinfo file for DocBook, checkout the <a href="https://github.com/richfaces/richfaces-docs/blob/master/Developer_Guide/src/main/docbook/en-US/Developer_Guide-docinfo.xml">RichFaces Developer Guide docinfo file</a>.</p>
+See <a href="#naming-docinfo-files">Naming docinfo files</a> for more details.</p>
+</div>
+<div class="paragraph">
+<p>To see a real-world example of a docinfo file for DocBook, checkout the <a href="https://github.com/richfaces/richfaces-docs/blob/master/Developer_Guide/src/main/docbook/en-US/Developer_Guide-docinfo.xml">RichFaces Developer Guide docinfo file</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="docinfo-attributes-and-file-names"><a class="anchor" href="#docinfo-attributes-and-file-names"></a>52.2. Docinfo attributes and file names</h3>
+<h3 id="footer-docinfo-files"><a class="anchor" href="#footer-docinfo-files"></a>52.2. Footer docinfo files</h3>
 <div class="paragraph">
-<p>To add content from a docinfo file to the header of a rendered document:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The docinfo file must be named correctly</p>
-</li>
-<li>
-<p>The appropriate docinfo attribute must be set in the source document</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>How you name your docinfo file and the docinfo attribute you set in your source document depends on whether you want to add content to:</p>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>a specific document</p>
-</li>
-<li>
-<p>all the documents in a directory</p>
-</li>
-<li>
-<p>a and b</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The attributes and the corresponding file names are listed in the table below.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Docinfo attributes and file names</caption>
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attribute</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-<th class="tableblock halign-left valign-top">docinfo file name for HTML</th>
-<th class="tableblock halign-left valign-top">docinfo file name for DocBook</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">docinfo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add content to a specific document</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;docname&gt;-docinfo.html</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;docname&gt;-docinfo.xml</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">docinfo1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add content to all documents in the same directory</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>docinfo.html</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>docinfo.xml</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">docinfo2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add content from either docinfo file</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;docname&gt;.html</code>, <code>&lt;docname&gt;-docinfo.html</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;docname&gt;.xml</code>, <code>&lt;docname&gt;-docinfo.xml</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Let&#8217;s apply the information above to an example exercise.</p>
-</div>
-<div class="paragraph">
-<p>You have two AsciiDoc documents, adventure.adoc and insurance.adoc, saved in the same folder.
-You want to add the same content to the headers of both documents when they&#8217;re rendered to HTML.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Create a docinfo file using &lt;head&gt; elements.</p>
-</li>
-<li>
-<p>Save the docinfo file as docinfo.html.</p>
-</li>
-<li>
-<p>Set the <code>docinfo1</code> attribute in adventure.adoc and insurance.adoc.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>You also want to include some additional content to the header of adventure.adoc.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Create <strong>another</strong> docinfo file using &lt;head&gt; elements.</p>
-</li>
-<li>
-<p>Save the docinfo file as adventure-docinfo.html.</p>
-</li>
-<li>
-<p>Set the <code>docinfo</code> attribute in adventure.adoc.</p>
-</li>
-<li>
-<p>Alternatively, you could remove the docinfo1 attribute and set docinfo2 instead.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="footer-docinfo-files"><a class="anchor" href="#footer-docinfo-files"></a>52.3. Footer docinfo files</h3>
-<div class="paragraph">
-<p>Footer docinfo files are differentiated from header docinfo files by adding <code>-footer</code> to the file name.
-In the HTML output, the footer content is inserted immediately after the footer div (that is, <code>&lt;div id="footer"&gt;</code>).
-In the DocBook output, the footer content is inserted immediately before the ending <code>&lt;/article&gt;</code> or <code>&lt;/book&gt;</code> element.</p>
-</div>
-<div class="paragraph">
-<div class="title">docinfo</div>
-<p>If you want additional footer content for a specific document, put the content in the file <code>&lt;docname&gt;-docinfo-footer.html</code> (for HTML output) or <code>&lt;docname&gt;-docinfo-footer.xml</code>
-(for DocBook output), where <code>&lt;docname&gt;</code> is the name of the document without the AsciiDoc extension.
-Then set the attribute <code>docinfo</code> in the source document.</p>
-</div>
-<div class="paragraph">
-<div class="title">docinfo1</div>
-<p>If you want additional footer content for all documents in the same directory, put the content in the file <code>docinfo-footer.html</code> or <code>docinfo-footer.xml</code>.
-Then set the attribute <code>docinfo1</code> in the source document.</p>
-</div>
-<div class="paragraph">
-<div class="title">docinfo2</div>
-<p>If you want the document to look for either docinfo file, set the attribute <code>docinfo2</code> in the source document.</p>
+<p>Footer docinfo files are differentiated from head docinfo files by the addition of <code>-footer</code> to the file name.
+In the HTML output, the footer content is inserted immediately after the footer div (i.e., <code>&lt;div id="footer"&gt;</code>).
+In the DocBook output, the footer content is inserted immediately before the ending tag (e.g., <code>&lt;/article&gt;</code> or <code>&lt;/book&gt;</code>).</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -16828,18 +16728,188 @@ Then set the attribute <code>docinfo1</code> in the source document.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-To change the text in the "Last updated" line in the footer, set the text in the attribute <code>last-update-label</code> (for example, <code>:last-update-label: &lt;your text&gt; Last Updated</code>).<br>
-To disable the "Last updated" line in the footer, unassign the attribute <code>last-update-label</code> (however, this leaves an empty footer div).<br>
-To disable the footer completely, set the attribute <code>nofooter</code>. Then having a footer docinfo file effectively replaces the default footer with your custom footer.
+One possible use of the footer docinfo file is to completely replace the default footer in the standard stylesheet.
+Just set the attribute <code>nofooter</code>, then apply a custom footer docinfo file.
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="attribute-substitution"><a class="anchor" href="#attribute-substitution"></a>52.4. Attribute substitution</h3>
+<h3 id="naming-docinfo-files"><a class="anchor" href="#naming-docinfo-files"></a>52.3. Naming docinfo files</h3>
 <div class="paragraph">
-<p>Docinfo files can include attribute references.</p>
+<p>The required file name depends on which backend it is for (html or docbook), and whether it is for a specific document (&#8220;private&#8221;) or for all the documents in a directory (&#8220;shared&#8221;).
+The file extension should match the file extension of the output file (as controlled by the <code>outfilesuffix</code> attribute).</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Docinfo file naming</caption>
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Mode</th>
+<th class="tableblock halign-left valign-top">Location</th>
+<th class="tableblock halign-left valign-top">Behaviour</th>
+<th class="tableblock halign-left valign-top">Docinfo file name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Private</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Head</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds content to <code>&lt;head&gt;</code>/<code>&lt;info&gt;</code> for &lt;docname&gt;.adoc files.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;docname&gt;-docinfo&lt;outfilesuffix&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Footer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds content to end of document for &lt;docname&gt;.adoc files.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;docname&gt;-docinfo-footer&lt;outfilesuffix&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Head</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds content to <code>&lt;head&gt;</code>/<code>&lt;info&gt;</code> for any document in same directory.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>docinfo&lt;outfilesuffix&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Footer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds content to end of document for any document in same directory.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>docinfo-footer&lt;outfilesuffix&gt;</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To specify which file(s) you want to apply, set the <code>docinfo</code> attribute to any combination of these values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>private-head</code></p>
+</li>
+<li>
+<p><code>private-footer</code></p>
+</li>
+<li>
+<p><code>private</code> (alias for <code>private-head,private-footer</code>)</p>
+</li>
+<li>
+<p><code>shared-head</code></p>
+</li>
+<li>
+<p><code>shared-footer</code></p>
+</li>
+<li>
+<p><code>shared</code> (alias for <code>shared-head,shared-footer</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Setting <code>docinfo</code> with no value is equivalent to setting the value to <code>private</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:docinfo: shared,private-footer</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This docinfo configuration will apply the shared docinfo head and footer files, if they exist, as well as the private footer file, if it exists.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>docinfo</code> attribute values were introduced in Asciidoctor 1.5.5 to replace the less descriptive <code>docinfo1</code> and <code>docinfo2</code> attributes.
+Here are the equivalents of the old attributes using the new values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:docinfo:</code> = <code>:docinfo: private</code></p>
+</li>
+<li>
+<p><code>:docinfo1:</code> = <code>:docinfo: shared</code></p>
+</li>
+<li>
+<p><code>:docinfo2:</code> = <code>:docinfo: shared,private</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s apply this to an example:</p>
+</div>
+<div class="paragraph">
+<p>You have two AsciiDoc documents, adventure.adoc and insurance.adoc, saved in the same folder.
+You want to add the same content to the head of both documents when they&#8217;re rendered to HTML.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a docinfo file containing <code>&lt;head&gt;</code> elements.</p>
+</li>
+<li>
+<p>Save it as docinfo.html.</p>
+</li>
+<li>
+<p>Set the <code>docinfo</code> attribute in adventure.adoc and insurance.adoc to <code>shared</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You also want to include some additional content, but only to the head of adventure.adoc.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create <strong>another</strong> docinfo file containing <code>&lt;head&gt;</code> elements.</p>
+</li>
+<li>
+<p>Save it as adventure-docinfo.html.</p>
+</li>
+<li>
+<p>Set the <code>docinfo</code> attribute in adventure.adoc to <code>shared,private-head</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If other AsciiDoc files are added to the same folder, and <code>docinfo</code> is set to <code>shared</code> in those files, only the docinfo.html file will be added when converting those files.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-docinfo-files"><a class="anchor" href="#locating-docinfo-files"></a>52.4. Locating docinfo files</h3>
+<div class="paragraph">
+<p>By default, docinfo files are searched for in the same folder as the document file.
+If you want to keep them anywhere else, set the <code>docinfodir</code> attribute to their location:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:docinfodir: common/meta</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that if you use this attribute, only the specified folder will be searched; docinfo files in the document folder will no longer be found.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="attribute-substitution-in-docinfo-files"><a class="anchor" href="#attribute-substitution-in-docinfo-files"></a>52.5. Attribute substitution in docinfo files</h3>
+<div class="paragraph">
+<p>Docinfo files may include attribute references.
+Which substitutions get applied is controlled by the <code>docinfosubs</code> attribute, which takes a comma-separated list of substitution names.
+The value of this attribute defaults to <code>attributes</code>.</p>
 </div>
 <div class="paragraph">
 <p>For example, if you created the following docinfo file:</p>
@@ -16856,12 +16926,12 @@ To disable the footer completely, set the attribute <code>nofooter</code>. Then 
 <div class="listingblock">
 <div class="title">Source document including a revision number</div>
 <div class="content">
-<pre class="nowrap">= Document Title
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Document Title
 Author Name
 v1.0, 2013-06-01
 :doctype: book
 :backend: docbook
-:docinfo:</pre>
+:docinfo:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -22865,7 +22935,7 @@ Also used as a fallback when the document title is not specified.
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Comma-separated list of the following values: shared, private, shared-head, private-head, shared-footer or private-footer</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#docinfo-attributes-and-file-names">Docinfo attributes and file names</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#docinfo-attributes-and-file-names">[docinfo-attributes-and-file-names]</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">docinfodir</p></td>
@@ -22873,7 +22943,7 @@ Also used as a fallback when the document title is not specified.
 <td class="tableblock halign-left valign-top"><p class="tableblock">The base directory.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Directory</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#docinfo-attributes-and-file-names">Docinfo attributes and file names</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#docinfo-attributes-and-file-names">[docinfo-attributes-and-file-names]</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">docinfosubs</p></td>
@@ -22881,7 +22951,7 @@ Also used as a fallback when the document title is not specified.
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Comma-separated list of substitution names</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#docinfo-attributes-and-file-names">Docinfo attributes and file names</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#docinfo-attributes-and-file-names">[docinfo-attributes-and-file-names]</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">doctype</p></td>
@@ -24275,7 +24345,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-12-05 05:48:39 UTC
+Last updated 2016-12-05 06:39:25 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
