@@ -5,10 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.4">
-<meta name="description" content="A guide that assists with migration from Asciidoctor 0.1.4 to 1.5.0.">
-<meta name="keywords" content="Asciidoctor 1.5, migrate to Asciidoctor 1.5, Asciidoctor 1.5 migration, migrating to Asciidoctor 1.5, migrating to Asciidoctor, compat mode, Asciidoctor compat mode, compat-mode">
-<meta name="author" content="Dan Allen">
-<title>Migrating to Asciidoctor 1.5.0</title>
+<title>Migrating from MS Word</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -514,234 +511,15 @@ table.CodeRay td.code>pre{padding:0}
 </head>
 <body class="article">
 <div id="header">
-<h1>Migrating to Asciidoctor 1.5.0</h1>
-<div class="details">
-<span id="author" class="author">Dan Allen</span><br>
-<span id="revnumber">version 1.1,</span>
-<span id="revdate">2014-08-10</span>
-</div>
+<h1>Migrating from MS Word</h1>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>We decided to rework some of the AsciiDoc syntax in Asciidoctor 1.5.0 in an effort to make it more consistent, deterministic and easy to learn.
-You can learn more about the changes in the <a href="/release-notes/asciidoctor-1-5-0">Asciidoctor 1.5.0 release notes</a>.</p>
-</div>
-<div class="paragraph">
-<p>Compatibility is very important to us, so we&#8217;ve added a compatibility mode as well as a transitional syntax to ease migration from Asciidoctor 0.1.4 to Asciidoctor 1.5.0.
-This document explains how to enable <a href="#compat-mode">compat(ibility) mode</a>, if you&#8217;re not yet ready to migrate, as well as the <a href="#migration-scenarios">migration scenarios</a>, for when you are ready to make the switch.
-It also draws your attention to a few minor changes you&#8217;ll need to be aware of that could affect your content.</p>
-</div>
-<div id="toc" class="toc">
-<div id="toctitle" class="title">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#compat-mode">Compat mode</a></li>
-<li><a href="#migration-scenarios">Migration scenarios</a></li>
-<li><a href="#migration-cheatsheet">Migration cheatsheet</a></li>
-<li><a href="#toc-table-of-contents-positioning">TOC (Table of Contents) positioning</a></li>
-<li><a href="#font-awesome-upgrade-3-2-1-4-1">Font Awesome upgrade (3.2.1 &#8594; 4.1)</a></li>
-</ul>
-</div>
-</div>
-</div>
 <div class="sect1">
-<h2 id="compat-mode"><a class="anchor" href="#compat-mode"></a>Compat mode</h2>
+<h2 id="pandoc"><a class="anchor" href="#pandoc"></a>Pandoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you can&#8217;t migrate right now, you can activate compatibility mode by setting the document-level <code>compat-mode</code> attribute or by using a setext-style (i.e., two-line) document title.</p>
-</div>
-<div class="paragraph">
-<p>In compat mode, most of Asciidoctor 1.5.0&#8217;s <em>syntax modifications</em> that deviate from the legacy AsciiDoc syntax are reverted.
-This mode does not disable syntax unique to Asciidoctor, such as inline icons (e.g., icon:fire[]).</p>
-</div>
-<div class="paragraph">
-<p>You can define the <code>compat-mode</code> attribute in the document header:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">:compat-mode:</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>using the <code>-a</code> commandline flag:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">-a compat-mode</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>or using the <code>attributes</code> option in the API:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">attributes: %w(compat-mode)</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Alternatively, you can enable compat mode by using a setext-style (i.e., two-line) section title:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">Document Title
-==============
-
-Content parsed in compat-mode by default.</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Since setext-style headings are typically used in older AsciiDoc documents, this convention allows Asciidoctor to accomodate these older documents without having to wake any sleeping giants ;)</p>
-</div>
-<div class="paragraph">
-<p>You can set <code>compat-mode</code> anywhere in the flow of a document.</p>
-</div>
-<div class="listingblock">
-<div class="title">Setting and unsetting compat-mode in a document</div>
-<div class="content">
-<pre class="nowrap">:compat-mode: <i class="conum" data-value="1"></i><b>(1)</b>
-
-Sometimes you feel 'compat'.
-
-:compat-mode!: <i class="conum" data-value="2"></i><b>(2)</b>
-
-Sometimes you _don't_.</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Set compat-mode within the body of a document.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Unset compat-mode using a bang (<code>!</code>) within the body of a document.</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Compat mode will be supported for the foreseeable future to avoid unnecessary disruption to your content.</p>
-</div>
-<div class="paragraph">
-<p>If you want to begin migration to the modern syntax, read on.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="migration-scenarios"><a class="anchor" href="#migration-scenarios"></a>Migration scenarios</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>There are several scenarios that are affected by Asciidoctor 1.5.0&#8217;s changes to the AsciiDoc syntax:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Monospaced normal text (text that doesn&#8217;t contain any AsciiDoc syntax)</p>
-</li>
-<li>
-<p>Monospaced text without substitutions (you want to prevent the monospaced text from being interpreted)</p>
-</li>
-<li>
-<p>Monospaced text with substitutions (you want the monospaced text to be interpreted)</p>
-</li>
-<li>
-<p>Smart quote shorthand</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Let&#8217;s first consider the legacy syntax used in each of these examples.</p>
-</div>
-<div class="sect2">
-<h3 id="legacy-syntax"><a class="anchor" href="#legacy-syntax"></a>Legacy syntax</h3>
-<div class="paragraph">
-<p>Here&#8217;s the legacy syntax (Asciidoctor 0.1.4 and earlier) for the scenarios listed above.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>+monospaced normal text+ or `monospaced normal text`</p>
-</li>
-<li>
-<p>`{asciidoctor-version} holds the version` (attribute is not replaced)</p>
-</li>
-<li>
-<p>+The Asciidoctor version is {asciidoctor-version}+ (attribute is replaced)</p>
-</li>
-<li>
-<p>``double quoted'' and `single quoted' (quotes are curved)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="new-syntax"><a class="anchor" href="#new-syntax"></a>New syntax</h3>
-<div class="paragraph">
-<p>Here are those same three scenarios using the syntax in Asciidoctor 1.5.0.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>`monospaced normal text`</p>
-</li>
-<li>
-<p>`+{asciidoctor-version} holds the version+` (attribute is not replaced)</p>
-</li>
-<li>
-<p>`The Asciidoctor version is {asciidoctor-version}` (attribute is replaced)</p>
-</li>
-<li>
-<p>"`double quoted`" and '`single quoted`' (quotes are curved)</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-To escape single smart quotes in the legacy syntax, you place a single backslash in front of the start quote (e.g., \``single quoted'').
-In the new syntax, you need to use a backslash before the start quote and before the end quote (e.g., \'`single quoted\`').
-That&#8217;s because `' is an unconstrained (anywhere) right smart quote replacement.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Before jumping to the new syntax, you need to understand that it won&#8217;t be parsed correctly by Asciidoctor 0.1.4.
-Unfortunately, we can&#8217;t control when Asciidoctor is upgraded on services like GitHub, so there will be a period of time when you will need to use a syntax that works on both versions.
-So what do we do?
-The answer, use the transitional syntax.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="transitional-syntax"><a class="anchor" href="#transitional-syntax"></a>Transitional syntax</h3>
-<div class="paragraph">
-<p>The transitional syntax allows you to pin-point the locations in your document that you&#8217;ll eventually want to migrate to the modern syntax, but can&#8217;t yet until Asciidoctor 0.1.4 is phased out.</p>
-</div>
-<div class="paragraph">
-<p>To use the transitional syntax, simply add the role <code>x-</code> in front of the legacy syntax to indicate that you want Asciidoctor 1.5.0 to use the old behavior.
-Naturally, Asciidoctor 0.1.4 already understands the old syntax and will simply ignore the role.</p>
-</div>
-<div class="ulist">
-<div class="title">Transitional syntax</div>
-<ul>
-<li>
-<p>`monospaced normal text` (<strong>No transitional syntax necessary!</strong>)</p>
-</li>
-<li>
-<p>[x-]`{asciidoctor-version} holds the version` (attribute is not replaced)</p>
-</li>
-<li>
-<p>[x-]+The Asciidoctor version is {asciidoctor-version}+ (attribute is replaced)</p>
-</li>
-<li>
-<p>“double quotes” and ‘single quotes’</p>
-</li>
-</ul>
+<p><a href="http://pandoc.org">Pandoc</a> is a swiss army knife for converting one markup format to another.
+It does an admirable job converting simple docx files to AsciiDoc.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -750,219 +528,314 @@ Naturally, Asciidoctor 0.1.4 already understands the old syntax and will simply 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>There isn&#8217;t transitional syntax for curved (i.e., smart) quotes.
-Instead, we encourage you to enter the smart quotes directly into your document.
-It is UTF-8 after all!</p>
-</div>
-<div class="paragraph">
-<p>Refer to <a href="http://smartquotesforsmartpeople.com">Smart Quotes for Smart People</a>, <a href="http://www.kryogenix.org/days/2013/10/17/smart-quotes-for-smart-ubuntu-people">Smart Quotes for Smart Ubuntu (Linux) People</a> or <a href="http://fsymbols.com/keyboard/linux/compose/">Linux Keyboard Shortcuts for Text Symbols</a> for instructions on how to type these characters.</p>
-</div>
+Generally, we don&#8217;t like to recommend pandoc because it doesn&#8217;t create AsciiDoc the way we prefer.
+However, in this case, it&#8217;s a good choice.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s consider an example.</p>
+<p>To perform the conversion from MS Word docx to AsciiDoc, you need to perform the following command:</p>
 </div>
-<div class="exampleblock">
-<div class="title">Example: Using the transitional syntax</div>
+<div class="listingblock">
 <div class="content">
-<div class="paragraph">
-<p>Assume you want to put italics inside of monospaced text.
-If you want the syntax to work in both Asciidoctor and AsciiDoc Python, you need to do one of the following:</p>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Enable the <code>compat-mode</code> attribute on the document and enter the text as:</p>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">+cat _filename_+</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Don&#8217;t enable the <code>compat-mode</code> attribute and enter the text as:</p>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">[x-]+cat _filename_+</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>You can think of <code>[x-]</code> as a local compat mode setting.</p>
-</div>
+<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ pandoc --from=docx --to=asciidoc --wrap=none --atx-headers --normalize --extract-media=extracted-media input.docx &gt; output.adoc</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you aren&#8217;t worried about how the document renders on services like GitHub, you can start using the modern syntax immediately.</p>
+<p>Then, edit the output file to tidy it up.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="migration-cheatsheet"><a class="anchor" href="#migration-cheatsheet"></a>Migration cheatsheet</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>The following table provides a migration cheatsheet that compares the legacy, transitional and modern syntax side-by-side.</p>
+<p>The conversions you can expect are shown in the following table (tested using MS Word 2010 and Pandoc 1.17 (Windows)):</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. Syntax migration cheatsheet</caption>
+<caption class="title">Table 1. Pandoc MS Word to AsciiDoc conversions</caption>
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Legacy</th>
-<th class="tableblock halign-left valign-top">Transitional</th>
-<th class="tableblock halign-left valign-top">Modern</th>
-<th class="tableblock halign-left valign-top">Rendered</th>
+<th class="tableblock halign-left valign-top">MS Word Feature</th>
+<th class="tableblock halign-left valign-top">Conversion</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'italic text'</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>_single quoted_</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>italic text</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Headings (using MS Word Heading styles 1-5)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>+monospaced text+</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>`monospaced text`</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monospaced text</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tables</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes.
+Merged cells are unmerged.
+Column widths are ignored.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>`monospaced text`</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>`monospaced text`</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monospaced text</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bulleted or numbered lists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>`{asciidoctor-version}`</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[x-]`{asciidoctor-version}`</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>`+{asciidoctor-version}+`</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{asciidoctor-version}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Footnotes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>+{asciidoctor-version}+</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[x-]+{asciidoctor-version}+</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>`{asciidoctor-version}`</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Figure and table captions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Normal paragraph</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>``double quoted''</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>“double quoted”</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"`double quoted`"</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">“double quoted”</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any other MS Word styled paragraphs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Normal paragraph</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>`single quoted'</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>‘single quoted’</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'`single quoted`'</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">‘single quoted’</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Embedded images</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character formatting (bold, underline and italic)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Document automation (fields, auto-generated figure and table numbers)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No - ignored</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internal references (e.g. "See Figure 3")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plain text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Drawing canvas</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ignored</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text boxes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ignored</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Linked (not embedded) images</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ignored</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vector graphics (MS Word "insert shape")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ignored</p></td>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="optimizing-for-pandoc"><a class="anchor" href="#optimizing-for-pandoc"></a>Optimizing for Pandoc</h3>
 <div class="paragraph">
-<p>If you have feedback about the new syntax, feel free to let us know in the <a href="https://github.com/asciidoctor/asciidoctor/issues">issue tracker</a>.</p>
+<p>The basic usage documented above is fine for one-off imports.
+If you have a lot to do, it&#8217;s worth while cleaning the input document first, and automating the post-conversion tidy up.</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Clean up the MS Word document:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Remove non-essential material (title pages, headers and footers, table of contents etc); it is usually easiest to copy just the body text into a new blank document</p>
+</li>
+<li>
+<p>Switch off tracking and accept all changes</p>
+</li>
+<li>
+<p>Ensure you have used Heading styles for headings</p>
+</li>
+<li>
+<p>Ensure table titles are immediately <strong>above</strong> their table</p>
+</li>
+<li>
+<p>Ensure figure titles are immediately <strong>above</strong> their figure</p>
+</li>
+<li>
+<p>Ensure images are inserted as embedded files, not as links</p>
+</li>
+<li>
+<p>Remove canvases and put any images they contained into the main flow as paragraph images (this limitation may be removed in the next release of pandoc)</p>
+</li>
+<li>
+<p>Replace all internal references and auto-generated sequence numbers with their literal values (<span class="keyseq"><kbd>Ctrl</kbd>+<kbd>A</kbd></span>, <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F9</kbd></span>)</p>
+</li>
+<li>
+<p>Remove text boxes and put their text into the main flow</p>
+</li>
+<li>
+<p>Replace special characters: smart quotes with simple quotes, non-breaking hyphens with normal hyphens.</p>
+</li>
+<li>
+<p>Remove all character formatting (<span class="keyseq"><kbd>Ctrl</kbd>+<kbd>A</kbd></span>, <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>B</kbd></span>, <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>B</kbd></span>, <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>I</kbd></span>, <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>I</kbd></span>, <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>U</kbd></span>, <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>U</kbd></span>)</p>
+</li>
+<li>
+<p>Optional: insert ids and cross references using AsciiDoc notation
+(You might find it easier doing it now rather than in the AsciiDoc document later.)</p>
+</li>
+<li>
+<p>Save as "Strict Open-xml document (docx)"</p>
+</li>
+</ul>
 </div>
-</div>
-<div class="sect1">
-<h2 id="toc-table-of-contents-positioning"><a class="anchor" href="#toc-table-of-contents-positioning"></a>TOC (Table of Contents) positioning</h2>
-<div class="sectionbody">
+</li>
+<li>
+<p>Convert using pandoc as shown above.</p>
+</li>
+<li>
+<p>Check that the output document looks OK, and that all images have been extracted.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Say goodbye to the <code>toc2</code> attribute.
-It&#8217;s deprecated!</p>
-</div>
-<div class="paragraph">
-<p>As of Asciidoctor 1.5.0, the <code>toc2</code>, <code>toc-placement</code> and <code>toc-position</code> attributes have been combined into a more expressive <code>toc</code> attribute.
-The <code>toc</code> attribute does it all!
-It&#8217;s now responsible for enabling the table of contents and specifying the location where it should appear.</p>
-</div>
-<div class="paragraph">
-<p>For example, to activate the table of contents in the left sidebar, define the <code>toc</code> attribute <em>in the document header</em> with the value of <code>left</code>.</p>
+<p>If for some reason pandoc is not extracting images, you can always extract them by using unzip tool.
+Docx is just a zip file with a docx file extension. Embedded images are located in word/media directory.</p>
 </div>
 <div class="listingblock">
-<div class="title">Enable the (left) sidebar table of contents</div>
 <div class="content">
-<pre class="nowrap">= Document Title
-Author Name
-:toc: left</pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ unzip input.docx -d input-docx
+$ ls input-docx/word/media/</code></pre>
 </div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Fix up the output, preferably with an editor that can do regular expressions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Delete automatic ids (those beginning with undererscore)</p>
+</li>
+<li>
+<p>Replace long table delimiters with short ones.</p>
+</li>
+<li>
+<p>Insert line-breaks to get to 1 sentence per paragraph.</p>
+</li>
+<li>
+<p>Re-insert images and turn caption paragraphs back into {adr} captions.</p>
+</li>
+<li>
+<p>Replace the hard cross references with AsciiDoc references.</p>
+</li>
+<li>
+<p>Fix tables - merged cells will have unmerged, column widths need putting back.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Try to convert it, and fix any errors that come up.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>If you want to position the table of contents manually, then you&#8217;d set the value of the <code>toc</code> attribute to <code>macro</code> (<em>not</em> <code>manual</code>) and use the <code>toc::[]</code> macro to indicate the location where the table of contents should appear.</p>
-</div>
-<div class="listingblock">
-<div class="title">Position the sidebar explicitly</div>
-<div class="content">
-<pre class="nowrap">= Document Title
-Author Name
-:toc: macro
-
-some content
-
-toc::[]
-
-more content</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The following list shows the permitted values for the <code>toc</code> attribute:</p>
+<p>The following are posix shell one-liners to automate some of these steps (adjust the regexps to match your particular document):</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>auto (default value when the <code>toc</code> attribute value is blank)</p>
+<p>Delete automatically inserted ids</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ perl -W -pe  's!\[\[_.*]]!!g' -i output.adoc</code></pre>
+</div>
+</div>
 </li>
 <li>
-<p>left</p>
+<p>Shorten table delimiters</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ perl -W -pe  's!\|==*!|====!g' -i output.adoc</code></pre>
+</div>
+</div>
 </li>
 <li>
-<p>right</p>
+<p>1 sentence per line.
+Be careful not to match lists.
+It will get confused by abbreviations, but there is no way around that.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ perl -W -pe 's!(\w\w+)\.\s+(\w)!$1.\n$2!g' -i output.adoc</code></pre>
+</div>
+</div>
 </li>
 <li>
-<p>preamble</p>
+<p>Replace figure captions with id and title</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ perl -W -pe 's!^Figure (\d+)\s?(.*)![[fig-$1]]\n.$2\n!g' -i output.adoc</code></pre>
+</div>
+</div>
 </li>
 <li>
-<p>macro</p>
+<p>Replace references to figures with asciidoc xref</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ perl -W -pe 's!Figure (\d+)!&lt;&lt;fig-$1&gt;&gt;!g' -i output.adoc</code></pre>
+</div>
+</div>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>We recommend you remove all other attributes that affect the positioning of the toc from your document or launch scripts (i.e., <code>toc2</code>, <code>toc-placement</code> and <code>toc-position</code>).</p>
-</div>
-<div class="paragraph">
-<p>For more information about the table of contents, see the <a href="../user-manual/#user-toc">Table of Contents</a> section of the user manual.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="font-awesome-upgrade-3-2-1-4-1"><a class="anchor" href="#font-awesome-upgrade-3-2-1-4-1"></a>Font Awesome upgrade (3.2.1 &#8594; 4.1)</h2>
+<h2 id="google-docs"><a class="anchor" href="#google-docs"></a>Google Docs</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Asciidoctor 1.5.0 release brought an upgrade from Font Awesome 3.2.1 to 4.1.
-Font Awesome 4 introduced a new naming pattern for icons.
-This won&#8217;t affect any of the built-in use of Font Awesome, such as admonition icons, but it does affect the inline icon macro.
-If you use the inline icon macro, consult the <a href="https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4#new-icon-names">mapping between old and new names</a> to ensure you don&#8217;t have any broken images.</p>
+<p>Google Docs can already upload and edit MS Word docx files.
+Using the <a href="https://chrome.google.com/webstore/detail/asciidoc-processor/eghlmnhjljbjodpeehjjcgfcjegcfbhk/">AsciiDoc Processor add-on</a> by Guillaume Grossetie, you can copy and paste part or all of the document from Google Docs as AsciiDoc text.
+The features that it can handle seem to be substantially fewer than pandoc but expect further development.
+The source for the addon is at <a href="https://github.com/Mogztter/asciidoc-googledocs-addon/" class="bare">https://github.com/Mogztter/asciidoc-googledocs-addon/</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="plain-text"><a class="anchor" href="#plain-text"></a>Plain Text</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This method is only useful for very small files or if the other methods are not available.</p>
 </div>
 <div class="paragraph">
-<p>If you want to continue to use the old icon names, you can incorporate the <a href="https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/compat/font-awesome-3-compat.css">font-awesome-3-compat.css</a> file from the Asciidoctor repository into your generated HTML using a <a href="http://asciidoctor.org/docs/user-manual/#docinfo-file">docinfo file</a>.</p>
+<p>It keeps the text, and <em>fixes</em> fields like auto-numbered lists and cross references.</p>
+</div>
+<div class="paragraph">
+<p>It loses tables (converted to plain paragraphs), images, symbols, form fields, and textboxes.</p>
+</div>
+<div class="paragraph">
+<p>In MS Word, use <span class="menuseq"><span class="menu">Save as</span>&#160;&#9656; <span class="menuitem">Plain text</span></span>, then when the File Conversion dialog appears, set:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Other encoding: UTF-8</p>
+</li>
+<li>
+<p>Do not insert line breaks</p>
+</li>
+<li>
+<p>Allow character substition</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Save the file then apply AsciiDoc markup manually.</p>
+</div>
+<div class="paragraph">
+<p>Experiment with the encoding.
+Try UTF-8 first, but if you get problems you can always revert to US-ASCII.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.1<br>
 Last updated 2016-12-05 06:57:29 UTC
 </div>
 </div>
