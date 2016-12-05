@@ -29,9 +29,10 @@ However, in this case, it&#8217;s a good choice.
 <div class="paragraph">
 <p>To perform the conversion from MS Word docx to AsciiDoc, you need to perform the following command:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ pandoc --from=docx --to=asciidoc --wrap=none --atx-headers --normalize --extract-media=extracted-media input.docx &gt; output.adoc</code></pre>
+<pre class="nowrap">$ pandoc --from=docx --to=asciidoc --wrap=none --atx-headers \
+  --normalize --extract-media=extracted-media input.docx &gt; output.adoc</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -184,10 +185,10 @@ If you have a lot to do, it&#8217;s worth while cleaning the input document firs
 <p>If for some reason pandoc is not extracting images, you can always extract them by using unzip tool.
 Docx is just a zip file with a docx file extension. Embedded images are located in word/media directory.</p>
 </div>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ unzip input.docx -d input-docx
-$ ls input-docx/word/media/</code></pre>
+<pre class="nowrap">$ unzip input.docx -d input-docx
+  ls input-docx/word/media/</pre>
 </div>
 </div>
 </td>
@@ -232,17 +233,17 @@ $ ls input-docx/word/media/</code></pre>
 <ul>
 <li>
 <p>Delete automatically inserted ids</p>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ perl -W -pe  's!\[\[_.*]]!!g' -i output.adoc</code></pre>
+<pre class="nowrap">$ perl -W -pe  's!\[\[_.*]]!!g' -i output.adoc</pre>
 </div>
 </div>
 </li>
 <li>
 <p>Shorten table delimiters</p>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ perl -W -pe  's!\|==*!|====!g' -i output.adoc</code></pre>
+<pre class="nowrap">$ perl -W -pe  's!\|==*!|====!g' -i output.adoc</pre>
 </div>
 </div>
 </li>
@@ -250,25 +251,25 @@ $ ls input-docx/word/media/</code></pre>
 <p>1 sentence per line.
 Be careful not to match lists.
 It will get confused by abbreviations, but there is no way around that.</p>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ perl -W -pe 's!(\w\w+)\.\s+(\w)!$1.\n$2!g' -i output.adoc</code></pre>
+<pre class="nowrap">$ perl -W -pe 's!(\w\w+)\.\s+(\w)!$1.\n$2!g' -i output.adoc</pre>
 </div>
 </div>
 </li>
 <li>
 <p>Replace figure captions with id and title</p>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ perl -W -pe 's!^Figure (\d+)\s?(.*)![[fig-$1]]\n.$2\n!g' -i output.adoc</code></pre>
+<pre class="nowrap">$ perl -W -pe 's!^Figure (\d+)\s?(.*)![[fig-$1]]\n.$2\n!g' -i output.adoc</pre>
 </div>
 </div>
 </li>
 <li>
 <p>Replace references to figures with asciidoc xref</p>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="shell">$ perl -W -pe 's!Figure (\d+)!&lt;&lt;fig-$1&gt;&gt;!g' -i output.adoc</code></pre>
+<pre class="nowrap">$ perl -W -pe 's!Figure (\d+)!&lt;&lt;fig-$1&gt;&gt;!g' -i output.adoc</pre>
 </div>
 </div>
 </li>
