@@ -715,7 +715,8 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel2">
 <li><a href="#set-the-images-directory">32.1. Set the Images Directory</a></li>
 <li><a href="#put-images-in-their-place">32.2. Put Images in Their Place</a></li>
-<li><a href="#summary-5">32.3. Summary</a></li>
+<li><a href="#sizing-images">32.3. Sizing Images</a></li>
+<li><a href="#summary-5">32.4. Summary</a></li>
 </ul>
 </li>
 <li><a href="#video">33. Video</a>
@@ -11853,7 +11854,318 @@ Text below images.</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="summary-5"><a class="anchor" href="#summary-5"></a>32.3. Summary</h3>
+<h3 id="sizing-images"><a class="anchor" href="#sizing-images"></a>32.3. Sizing Images</h3>
+<div class="paragraph">
+<p>Since images often need to be sized according to the medium, there are several ways to specify the size of the image.</p>
+</div>
+<div class="paragraph">
+<p>In most output formats, the specified width is obeyed unless the image would exceed the content width or height, in which case it scaled to fit using proportional scaling.</p>
+</div>
+<div class="paragraph">
+<p>The primary way to specify the size of an image is to define the <code>width</code> and <code>height</code> attributes on the image macro.
+Since these two attributes are so common, they are the second and third (unnamed) positional attributes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">image::flower.jpg[Flower,640,480]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That&#8217;s equivalent to the long-hand version:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">image::flower.jpg[alt=Flower,width=640,height=480]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>While the values of <code>width</code> and <code>height</code> can be used to scale the image, they are primarily intended to specify the intrinsic size of the image in CSS pixels (see <a href="https://www.w3.org/TR/2014/REC-html5-20141028/embedded-content-0.html#dimension-attributes" class="bare">https://www.w3.org/TR/2014/REC-html5-20141028/embedded-content-0.html#dimension-attributes</a>).
+The <code>width</code> and <code>height</code> attributes are mapped to attributes of the same name on the <code>&lt;img&gt;</code> element in the HTML output.
+These attributes are important because they provide a hint to the browser to tell it how much space to reserve for the image during rendering to minimize reflows.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Currently, images always retain their original aspect ratio, so if the height differs, it is ignored.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Asciidoctor recognizes the following attributes to size images when converting to other output formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pdfwidth</code> - The preferred width of the image in the PDF. (recognized by Asciidoctor PDF)</p>
+</li>
+<li>
+<p><code>scaledwidth</code> - The preferred width of the image when converting to PDF using the DocBook toolchain. (mutually exclusive with scale)</p>
+</li>
+<li>
+<p><code>scale</code> - Scales the original image size by this amount when converting to PDF using the DocBook toolchain (mutually exclusive with scaledwidth).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of how you might control the size of the image shown earlier:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">image::flower.jpg[Flower,640,480,pdfwidth=50%,scaledwidth=50%]</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="pdfwidth"><a class="anchor" href="#pdfwidth"></a>32.3.1. pdfwidth</h4>
+<div class="paragraph">
+<p>The <code>pdfwidth</code> attribute is used by Asciidoctor PDF.
+See <a href="https://github.com/asciidoctor/asciidoctor-pdf#image-scaling">image scaling in Asciidoctor PDF</a> for more details.</p>
+</div>
+<div class="paragraph">
+<p>The <code>pdfwidth</code> attribute accepts the following units:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+cm
+</td>
+<td class="hdlist2">
+<p>Centimeter</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+in
+</td>
+<td class="hdlist2">
+<p>Inches</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+mm
+</td>
+<td class="hdlist2">
+<p>Millimeter</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+%
+</td>
+<td class="hdlist2">
+<p>Percentage of the content width (area between margins)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+vw
+</td>
+<td class="hdlist2">
+<p>Percentage of the page width (edge to edge)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+pc
+</td>
+<td class="hdlist2">
+<p>Picas (1/6 of an inch)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+pt (or none)
+</td>
+<td class="hdlist2">
+<p>Points (1/72 of an inch)</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If <code>pdfwidth</code> is not provided, Asciidoctor PDF also accepts <code>scaledwidth</code>, or <code>width</code> (no units, assumed to be pixels), in that order.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="scaledwidth"><a class="anchor" href="#scaledwidth"></a>32.3.2. scaledwidth</h4>
+<div class="paragraph">
+<p><code>scaledwidth</code> is for the DocBook toolchain.
+It sizes images much like <code>pdfwidth</code>, except it does not accept the vw unit.</p>
+</div>
+<div class="paragraph">
+<p>The value of <code>scaledwidth</code> when used with DocBook can have the following units:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+px (or none)
+</td>
+<td class="hdlist2">
+<p>Output device pixels (normally 300 dpi)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+pt
+</td>
+<td class="hdlist2">
+<p>Points (1/72 of an inch)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+cm
+</td>
+<td class="hdlist2">
+<p>Centimeters</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+mm
+</td>
+<td class="hdlist2">
+<p>Millimeters</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+pc
+</td>
+<td class="hdlist2">
+<p>Picas (1/6 of an inch)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+in
+</td>
+<td class="hdlist2">
+<p>Inches</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+em
+</td>
+<td class="hdlist2">
+<p>Ems (current font size)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+%
+</td>
+<td class="hdlist2">
+<p>Percentage of intrinsic image size</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>DocBook also accepts the <code>width</code> attribute if <code>scaledwidth</code> is not provided.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="image-sizing-recap"><a class="anchor" href="#image-sizing-recap"></a>32.3.3. Image sizing recap</h4>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Image sizing methods</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 21.4285%;">
+<col style="width: 21.4285%;">
+<col style="width: 21.4285%;">
+<col style="width: 21.4288%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Output</th>
+<th class="tableblock halign-left valign-top">Absolute size</th>
+<th class="tableblock halign-left valign-top">Relative to original size</th>
+<th class="tableblock halign-left valign-top">Relative to content width</th>
+<th class="tableblock halign-left valign-top">Relative to page width</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">html</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">width=120</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not possible</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">width=50%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pdf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pdfwidth=100mm
+</p><p class="tableblock">(or cm, in, pt)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not possible</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pdfwidth=80%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pdfwidth=50vw
+</p><p class="tableblock">(or vh)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DocBook</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">scaledwidth=100mm
+</p><p class="tableblock">(or cm, em in, pc, pt, px)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">scaledwidth=80%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">scaledwidth=50%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not possible</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A practice you might consider is using attributes to set the values for each output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">ifdef::backend-html5[]
+:twoinches: width='144'
+:full-width: width='100%'
+:half-width: width='50%'
+:half-size:
+:thumbnail: width='60'
+endif::[]
+ifdef::backend-pdf[]
+:twoinches: pdfwidth='2in'
+:full-width: pdfwidth='100vw'
+:half-width: pdfwidth='50vw'
+:half-size: pdfwidth='50%'
+:thumbnail: pdfwidth='20mm'
+endif::[]
+ifdef::backend-docbook5[]
+:twoinches: width='50mm'
+:full-width: scaledwidth='100%'
+:half-width: scaledwidth='50%'
+:half-size: width='50%'
+:thumbnail: width='20mm'
+endif::[]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then specify your images as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">image::image.jpg[{half-size}]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>etc.</p>
+</div>
+<div class="paragraph">
+<p>As well as providing consistency across your document, this will help insulate you from future changes (<a href="http://discuss.asciidoctor.org/Unit-of-measure-for-image-dimensions-td3040.html#a3222" class="bare">http://discuss.asciidoctor.org/Unit-of-measure-for-image-dimensions-td3040.html#a3222</a> for example).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="summary-5"><a class="anchor" href="#summary-5"></a>32.4. Summary</h3>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Block and inline image attributes and values</caption>
 <colgroup>
@@ -11928,7 +12240,13 @@ Text below images.</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>scaledwidth</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User defined percentage by which to scale image&#8217;s width</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>scaledwidth=25%</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only applies to block images converted to PDF via DocBook</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intended for DocBook block images</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pdfwidth</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User defined width for block images</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pdfwidth=80vw</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Asciidoctor-pdf only</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>align</code></p></td>
@@ -24345,7 +24663,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-12-05 07:42:47 UTC
+Last updated 2016-12-06 07:00:01 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
