@@ -3744,9 +3744,8 @@ However, a header must be present when the document type is <code>manpage</code>
 The requirements for a manual page (man page) are described in the <a href="#man-pages">man pages</a> section.</p>
 </div>
 <div class="paragraph">
-<p>The header is processed when converting a full document.
-This means that the header of a document called via an <a href="#include-directive">include directive</a> will be processed and rendered.
-When you do not want the header of a document to be rendered, set the <code>noheader</code> or <code>no-header-footer</code> attribute in the document&#8217;s header or the CLI.</p>
+<p>The header is included by default when converting to a standalone document.
+If you do not want the header of a document to be displayed, set the <code>noheader</code> attribute in the document&#8217;s header (or set the attribute using the API or CLI).</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -24680,7 +24679,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-12-23 07:45:57 UTC
+Last updated 2016-12-23 07:50:26 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
