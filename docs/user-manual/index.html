@@ -17918,19 +17918,89 @@ The placement and styling of the table of contents is determined by the DocBook 
 <h2 id="user-abstract"><a class="anchor" href="#user-abstract"></a>57. Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>An abstract is a concise overview of an article.
-Typically found in the frontmatter of academic, research, and analytical papers, an abstract can be classified as structured or unstructured and complete or limited.
-Abstracts with subheadings are structured abstracts, whereas abstracts without subheadings are unstructured.
-A complete (informative) abstract states the key topics and findings of the paper while a limited (descriptive) abstract briefly describes the structure of the article.
-An abstract title is not necessary.</p>
+<p>An abstract is a concise overview of an article or of a chapter in a book.
+They are frequently found in the frontmatter of academic, research, and analytical papers.
+A complete (i.e., informative) abstract states the key topics and findings while a limited (i.e., descriptive) abstract briefly describes the structure of the content.</p>
+</div>
+<div class="paragraph">
+<p>The abstract may be written using a section, open block, or paragraph and must bear the abstract style.
+If used, the abstract must appear before the first section of an article (at the start of the <a href="#doc-preamble">preamble</a>) or at the start of a chapter in a book.
+An abstract may not be used <em>before</em> a part or chapter in a book.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of an abstract at the beginning of an article, defined using a section:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">[abstract]
-== Documentation Abstract
+<pre class="nowrap">= Article Title
 
-Documentation is a distillation of many long, squiggly adventures.</pre>
+[abstract]
+== Abstract
+
+Documentation is a distillation of many long, squiggly adventures.
+
+== First Section</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of the same abstract defined using a paragraph:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">= Article Title
+
+[abstract]
+.Abstract
+Documentation is a distillation of many long, squiggly adventures.
+
+== First Section</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the book doctype, the abstract section must be a level below the chapter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">== Chapter Title
+
+[abstract]
+=== Chapter Abstract
+
+Documentation is a distillation of many long, squiggly adventures.
+
+=== First Section</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An abstract defined using an open block or paragraph does not require a title and does not depend on a subsequent section to terminate.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">= Article Title
+
+[abstract]
+.Optional Abstract Title
+--
+This article will take you on a wonderful adventure of knowledge.
+
+You'll start with the basics.
+Beyond that, where you go is up to you.
+--
+
+Your journey begins here.</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To include a quote at the beginning of a chapter in a book, wrap the quote block inside an abstract block.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -24679,7 +24749,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-12-26 06:50:47 UTC
+Last updated 2016-12-26 07:33:38 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
