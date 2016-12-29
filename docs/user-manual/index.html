@@ -11290,17 +11290,7 @@ end</pre>
 <div class="sect2">
 <h3 id="include-uri"><a class="anchor" href="#include-uri"></a>31.7. Include Content from a URI</h3>
 <div class="paragraph">
-<p>The include directive can insert content directly from a URI when the <code>allow-uri-read</code> attribute is:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Passed on the command-line,</p>
-</li>
-<li>
-<p>Passed as an attribute to the Asciidoctor API (Asciidoctor, AsciidoctorJ or Asciidoctor.js).</p>
-</li>
-</ul>
+<p>The include directive recognizes when the target is a URI and can include the content referenced by that URI.</p>
 </div>
 <div class="exampleblock">
 <div class="title">Including content from a URI</div>
@@ -11310,11 +11300,42 @@ end</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:asciidoctor-source: https://raw.githubusercontent.com/asciidoctor/asciidoctor/master
-
-include::{asciidoctor-source}/README.adoc[]</code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">include::https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/README.adoc[]</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="paragraph">
+<p>For security reasons, this capability is <em>not enabled</em> by default.
+To allow content to be read from a URI, you must enable the URI read permission by:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>running Asciidoctor in <code>SERVER</code> mode or less and</p>
+</li>
+<li>
+<p>setting the <code>allow-uri-read</code> attribute securely (i.e., from the CLI or API).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example that shows how to run Asciidoctor from the console so it can read content from a URI:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ asciidoctor -a allow-uri-read filename.adoc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Remember that Asciidoctor executes in SAFE mode by default when run from the command line.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example that shows how to run Asciidoctor from the API so it can read content from a URI:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="ruby"><span class="constant">Asciidoctor</span>.convert_file <span class="string"><span class="delimiter">'</span><span class="content">filename.adoc</span><span class="delimiter">'</span></span>, <span class="key">safe</span>: <span class="symbol">:safe</span>, <span class="key">attributes</span>: { <span class="string"><span class="delimiter">'</span><span class="content">allow-uri-read</span><span class="delimiter">'</span></span> =&gt; <span class="string"><span class="delimiter">'</span><span class="delimiter">'</span></span> }</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -11325,12 +11346,10 @@ include::{asciidoctor-source}/README.adoc[]</code></pre>
 </td>
 <td class="content">
 Including content from sources outside your control carries certain risks, including the potential to introduce malicious behavior into your documentation.
+Because <code>allow-uri-read</code> is a potentially dangerous feature, it is forcefully disabled when the safe mode is <code>SECURE</code> or higher.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>Because <code>allow-uri-read</code> is a potentially dangerous feature, it will only work if safe mode is set to <code>SERVER</code> or less. <code>SECURE</code> or higher prevents this feature from running altogether.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -11346,16 +11365,7 @@ A URL is simply a URI that points to a resource over a network, or web address.<
 </div>
 </div>
 <div class="paragraph">
-<p>When running Asciidoctor with safe mode set to <code>SERVER</code> or less, you must also set the <code>allow-uri-read</code> attribute on the command-line to permit Asciidoctor to read content from a URI.</p>
-</div>
-<div class="listingblock">
-<div class="title">Command Example</div>
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">asciidoctor -a allow-uri-read filename.adoc</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The same restriction applies when embedding an image that is referenced from a URI, such as when <code>data-uri</code> is set or when converting to PDF using Asciidoctor PDF.</p>
+<p>The same restriction described in this section applies when embedding an image referenced from a URI, such as when <code>data-uri</code> is set or when converting to PDF using Asciidoctor PDF.</p>
 </div>
 </div>
 <div class="sect2">
@@ -24765,7 +24775,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-12-29 07:00:59 UTC
+Last updated 2016-12-29 07:21:44 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
