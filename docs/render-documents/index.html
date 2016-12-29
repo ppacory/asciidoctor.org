@@ -326,11 +326,10 @@ Additionally, you can inspect mysample.html in your browser and see <code>&lt;li
 <h3 id="managing-images"><a class="anchor" href="#managing-images"></a>Managing images</h3>
 <div class="paragraph">
 <p>Images are not embedded in the HTML output by default.
-If you have image references in your document, you&#8217;ll have to save the image files in the same directory as your rendered document.
-Or, by passing the <code>data-uri</code> attribute to the processor, you can embed the images into the document.</p>
+If you have image references in your document, you&#8217;ll have to save the image files in the same directory as your rendered document.</p>
 </div>
 <div class="paragraph">
-<p>To embed images into the HTML output, set data-uri on the command line or in the document&#8217;s header.</p>
+<p>As an alternative, you can embed the images directly into the document by setting the <code>data-uri</code> document attribute.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -364,6 +363,17 @@ You may not be familiar with these http://en.wikipedia.org/wiki/Wolpertinger[rav
 </div>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>If the target of one or more images in the document is a URI, you must also set the <code>allow-uri-read</code> attribute securely and run Asciidoctor in <code>SECURE</code> mode or less.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ asciidoctor -a data-uri -a allow-uri-read mysample.adoc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The same is true when converting the document to PDF using Asciidoctor PDF, even if the <code>allow-uri-read</code> attribute is not set (since the behavior is implied).</p>
 </div>
 </div>
 <div class="sect2">
