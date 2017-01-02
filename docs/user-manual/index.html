@@ -9660,7 +9660,7 @@ To use these type of datasets, set the <code>format</code> attribute and assign 
 Tables using these alternate data formats are structured and formatted exactly like <code>psv</code> tables, the data separators are just different.</p>
 </div>
 <div class="paragraph">
-<p>When the format is set to csv the data separator is a comma (<code>,</code>), as seen in the table below.</p>
+<p>When the format attribute is set to <code>csv</code>, the data separator is a comma (<code>,</code>), as seen in the table below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9700,7 +9700,7 @@ The Lumineers,Ho Hey,Folk Rock
 </tbody>
 </table>
 <div class="paragraph">
-<p>When the format is dsv, the data separator is a colon (<code>:</code>).</p>
+<p>When the format attribute is set to <code>dsv</code>, the data separator is a colon (<code>:</code>).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9744,7 +9744,7 @@ The Piano Guys:Code Name Vivaldi:Classical
 The first position of the table block delimiter (i.e., <code>|===</code>) can be replaced by the data delimiter to set the table format.</p>
 </div>
 <div class="paragraph">
-<p>Instead of specifying the csv format using a block attribute, you can simply replace the leading pipe (<code>|</code>) with a comma (<code>,</code>):</p>
+<p>Instead of specifying the CSV format using a block attribute, you can simply replace the leading pipe (<code>|</code>) with a comma (<code>,</code>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9778,7 +9778,7 @@ Baauer,Harlem Shake,Hip Hop
 </tbody>
 </table>
 <div class="paragraph">
-<p>In the same way, the dsv format can be specified by replacing the leading pipe (<code>|</code>) with a colon (<code>:</code>).</p>
+<p>In the same way, the DSV format can be specified by replacing the leading pipe (<code>|</code>) with a colon (<code>:</code>).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9812,7 +9812,23 @@ Robyn:Indestructable:Dance
 </tbody>
 </table>
 <div class="paragraph">
-<p>DSV and CSV datasets can also be inserted into a table using the <a href="#include-directive">include directive</a>.</p>
+<p>DSV and CSV datasets don&#8217;t support individual cell formatting.
+However, you can apply formatting, including the AsciiDoc style, to a column of cells using the column spec:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[cols=&quot;1h,1a&quot;]
+,===
+Sky,image::sky.jpg[]
+Forest,image::forest.jpg[]
+,===</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Keep in mind that CSV and DSV cell data does not preserve endlines, so it does limit what you can do with the AsciiDoc style.</p>
+</div>
+<div class="paragraph">
+<p>DSV and CSV datasets can be inserted into a table using the <a href="#include-directive">include directive</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -24788,7 +24804,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-01-02 07:10:25 UTC
+Last updated 2017-01-02 07:14:22 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
