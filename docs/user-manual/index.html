@@ -17632,7 +17632,7 @@ See the <a href="#table-of-contents-summary">Table of Contents Summary</a> to fi
 <div class="sect2">
 <h3 id="manual-placement"><a class="anchor" href="#manual-placement"></a>56.1. In-Document Placement</h3>
 <div class="paragraph">
-<p><code>toc</code> values of <code>auto</code>, <code>preamble</code>, and <code>macro</code> place the TOC in the main document area.</p>
+<p><code>toc</code> values of <code>auto</code> (the default), <code>preamble</code>, and <code>macro</code> place the TOC in the main document area.</p>
 </div>
 <div class="paragraph">
 <p>When the value of <code>toc</code> attribute is unspecified or <code>auto</code>, the TOC is inserted directly below the document header (document title, author and revision lines).</p>
@@ -17648,17 +17648,18 @@ See the <a href="#table-of-contents-summary">Table of Contents Summary</a> to fi
 </td>
 <td class="content">
 When using the preamble placement, the TOC will not appear if your document does not have a <a href="#doc-preamble">preamble</a>.
+To fix this problem, just set the <code>toc</code> attribute to an empty value (or <code>auto</code>).
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
 <p>To place the TOC anywhere else in the document, set the <code>toc</code> attribute to <code>macro</code>.
-Then, put the <code>toc::[]</code> block macro where you want the TOC to appear.
+Then, put the <code>toc::[]</code> block macro at the location in the document where you want the TOC to appear.
 The <code>toc::[]</code> macro should appear at most once in any document.</p>
 </div>
 <div class="paragraph">
-<p>If <code>toc</code> is not set to <code>macro</code>, any <code>toc::[]</code> macros will be ignored.</p>
+<p>If <code>toc</code> is not set to <code>macro</code>, any <code>toc::[]</code> macros will silently be ignored.</p>
 </div>
 <div class="listingblock">
 <div class="title">Setting toc value to macro and using the <code>toc::[]</code> macro</div>
@@ -24805,7 +24806,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-01-03 06:55:17 UTC
+Last updated 2017-01-12 06:51:40 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
