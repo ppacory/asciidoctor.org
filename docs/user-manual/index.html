@@ -594,7 +594,11 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#building-a-document">Building a Document</a>
 <ul class="sectlevel1">
 <li><a href="#text-editor">14. Text Editor</a></li>
-<li><a href="#document-types">15. Document Types</a></li>
+<li><a href="#document-types">15. Document Types</a>
+<ul class="sectlevel2">
+<li><a href="#inline-doctype">15.1. Inline doctype</a></li>
+</ul>
+</li>
 <li><a href="#basic-document-anatomy">16. Basic Document Anatomy</a></li>
 <li><a href="#doc-header">17. Header</a>
 <ul class="sectlevel2">
@@ -3637,12 +3641,14 @@ To learn how to setup instant preview, check out the <a href="/docs/editing-asci
 <dl>
 <dt class="hdlist1">Article (keyword: <code>article</code>)</dt>
 <dd>
-<p>Default doctype.
+<p>The default doctype.
 In DocBook, includes the appendix, abstract, bibliography, glossary, and index sections.</p>
 </dd>
 <dt class="hdlist1">Book (keyword: <code>book</code>)</dt>
 <dd>
-<p>The same as articles with the additional ability to use a top level title as part titles, includes the appendix, dedication, preface, bibliography, glossary, index, and colophon.</p>
+<p>Builds on the article doctype with the additional ability to use a top-level title as part titles, includes the appendix, dedication, preface, bibliography, glossary, index, and colophon.
+There&#8217;s also the concept of a multi-part book, but the distinction from a regular book is determined by the content.
+A book only has chapters and special sections, whereas a multi-part book is divided by parts that each contain one or more chapters or special sections.</p>
 </dd>
 <dt class="hdlist1">Man page (keyword: <code>manpage</code>)</dt>
 <dd>
@@ -3652,13 +3658,14 @@ Refer to <a href="#man-pages">Man Pages</a> for details on how to compose AsciiD
 </dd>
 <dt class="hdlist1">Inline (keyword: <code>inline</code>)</dt>
 <dd>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
 <p>Asciidoctor only.
 There may be cases when you only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element.
 For example, in the <a href="/docs/install-and-use-asciidoclet/">Asciidoclet project</a> (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.</p>
+</dd>
+</dl>
 </div>
+<div class="sect2">
+<h3 id="inline-doctype"><a class="anchor" href="#inline-doctype"></a>15.1. Inline doctype</h3>
 <div class="paragraph">
 <p>The rules for the inline doctype are as follows:</p>
 </div>
@@ -3692,12 +3699,8 @@ For example, in the <a href="/docs/install-and-use-asciidoclet/">Asciidoclet pro
 </div>
 </div>
 <div class="paragraph">
-<p>The Asciidoctor processor is now able to cover the full range of output, from unstructured (inline) text to a full, standalone document!</p>
+<p>The inline doctype allows the Asciidoctor processor to cover the full range of applications, from unstructured (inline) text to full, standalone documents!</p>
 </div>
-</div>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -18101,10 +18104,18 @@ thank you for the plague of archetypes.</pre>
 <h2 id="book-parts-and-chapters"><a class="anchor" href="#book-parts-and-chapters"></a>60. Book Parts and Chapters</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can group the sections of your document into parts.
-Parts can only be used when the <code>doctype</code> is <code>book</code>.
-Part titles are specified with a single equals sign (<code>=</code>), the equivalent to a document title, i.e. section level 0.
-After the part title, you can include an optional introduction, which is designated by the <code>partintro</code> attribute.</p>
+<p>You may group the sections of your document into parts when you set the <code>doctype</code> to <code>book</code>.
+In fact, parts can only be used when the <code>doctype</code> is <code>book</code>.</p>
+</div>
+<div class="paragraph">
+<p>When a document has its <code>doctype</code> set to <code>book</code> and contains at least one part, it implicitly becomes a multi-part book.
+There is no dedicated doctype value for a multi-part book to distinguish it from a regular book.
+That distinction is made by the content.</p>
+</div>
+<div class="paragraph">
+<p>Part titles are specified with a single equals sign (<code>=</code>), the equivalent to the structure of a document title (i.e., level-0 section).
+Each part must contain at least one section (a chapter or special section).
+Immediately after the part title, you may insert an optional introduction, which is designated by the <code>partintro</code> style.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -24806,7 +24817,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-01-15 15:53:16 UTC
+Last updated 2017-01-23 06:51:03 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
