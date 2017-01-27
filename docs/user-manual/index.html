@@ -18739,11 +18739,15 @@ Use of this map is described in <a href="#ruby-api-options">Ruby API Options</a>
 <div class="paragraph">
 <p>Asciidoctor uses CSS for HTML document styling and JavaScript for generating document attributes such as a table of contents and footnotes.
 It comes bundled with a fresh, modern stylesheet, named <code>asciidoctor.css</code>.
-When you generate a document with the <code>html5</code> backend, the asciidoctor.css stylesheet is embedded into the HTML output by default.</p>
+When you generate a document with the <code>html5</code> backend, the asciidoctor.css stylesheet is embedded into the HTML output by default (when the safe mode is less than SECURE).</p>
 </div>
 <div class="paragraph">
-<p>However, you can link to the stylesheet instead of embedding it.
-To have your document link to the default stylesheet, set the <code>linkcss</code> attribute in the document&#8217;s header.</p>
+<p>You have the option of linking to the stylesheet instead of embedding it.
+This is the mandatory behavior when the safe mode is SECURE.
+If your stylesheet is being linked instead of embedded, adjust the safe mode.</p>
+</div>
+<div class="paragraph">
+<p>To have your document link to the stylesheet, set the <code>linkcss</code> attribute in the document&#8217;s header.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -23775,8 +23779,10 @@ The prefered approach is to assign an ID to the document title.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">linkcss</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If set, link to the stylesheet instead of embedding it.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If set, link to the stylesheet instead of embedding it.
+Cannot be unset in SECURE safe mode.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em> (when safe mode &lt; SECURE)<br>
+<em>set</em> (when safe mode is SECURE)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>empty</em></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#styling-the-html-with-css">Styling the HTML with CSS</a></p></td>
@@ -24816,7 +24822,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-01-23 17:37:08 UTC
+Last updated 2017-01-27 07:07:42 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

@@ -267,11 +267,15 @@ Use of this map is described in <a href="#ruby-api-options">[ruby-api-options]</
 <div class="paragraph">
 <p>Asciidoctor uses CSS for HTML document styling and JavaScript for generating document attributes such as a table of contents and footnotes.
 It comes bundled with a fresh, modern stylesheet, named <code>asciidoctor.css</code>.
-When you generate a document with the <code>html5</code> backend, the asciidoctor.css stylesheet is embedded into the HTML output by default.</p>
+When you generate a document with the <code>html5</code> backend, the asciidoctor.css stylesheet is embedded into the HTML output by default (when the safe mode is less than SECURE).</p>
 </div>
 <div class="paragraph">
-<p>However, you can link to the stylesheet instead of embedding it.
-To have your document link to the default stylesheet, set the <code>linkcss</code> attribute in the document&#8217;s header.</p>
+<p>You have the option of linking to the stylesheet instead of embedding it.
+This is the mandatory behavior when the safe mode is SECURE.
+If your stylesheet is being linked instead of embedded, adjust the safe mode.</p>
+</div>
+<div class="paragraph">
+<p>To have your document link to the stylesheet, set the <code>linkcss</code> attribute in the document&#8217;s header.</p>
 </div>
 <div class="listingblock">
 <div class="content">
