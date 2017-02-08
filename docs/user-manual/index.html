@@ -16162,7 +16162,9 @@ $ gem install pygments.rb <i class="conum" data-value="2"></i><b>(2)</b></code><
 pygments-style
 </td>
 <td class="hdlist2">
-<p>Sets the name of the color theme Pygments uses. Default: <code>pastie</code>.</p>
+<p>Sets the name of the color theme Pygments uses.
+To see the list of available style names, see <a href="#listing-pygments-style-names">Available Pygments style names</a>.
+Default: <code>pastie</code>.</p>
 </td>
 </tr>
 <tr>
@@ -16170,7 +16172,10 @@ pygments-style
 pygments-css
 </td>
 <td class="hdlist2">
-<p>Controls what method is used for applying CSS to the tokens. Can be <code>class</code> or <code>style</code>. Default: <code>class</code>.</p>
+<p>Controls what method is used for applying CSS to the tokens.
+Can be <code>class</code> (CSS classes) or <code>style</code> (inline styles).
+See <a href="#hl-css">Pygments stylesheet</a> to learn more about how the value <code>class</code> is handled.
+Default: <code>class</code>.</p>
 </td>
 </tr>
 <tr>
@@ -16178,7 +16183,9 @@ pygments-css
 pygments-linenums-mode
 </td>
 <td class="hdlist2">
-<p>Controls how line numbers are laid out. Can be <code>table</code> or <code>inline</code>. Default: <code>table</code>.</p>
+<p>Controls how line numbers are arranged when line numbers are enabled on the source block.
+Can be <code>table</code> or <code>inline</code>.
+Default: <code>table</code>.</p>
 </td>
 </tr>
 </table>
@@ -16214,13 +16221,8 @@ ORDERED_LIST_KEYWORDS = {
 </div>
 </div>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
+<div class="sect3">
+<h4 id="listing-pygments-style-names"><a class="anchor" href="#listing-pygments-style-names"></a>49.1.1. Available Pygments style names</h4>
 <div class="paragraph">
 <p>To list the available Pygments styles, run the following command in a terminal:</p>
 </div>
@@ -16230,23 +16232,82 @@ ORDERED_LIST_KEYWORDS = {
 </div>
 </div>
 <div class="paragraph">
-<p>The pygments.rb gem uses the version of Pygments that it bundles.
-This command ensures that you are invoking the <code>pygmentize</code> command used by that gem.</p>
+<p>The pygments.rb gem uses a bundled version of Pygments (often ahead of the latest release).
+This command ensures that you are invoking the <code>pygmentize</code> command from the Pygments used by that gem.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="using-a-custom-pygments-installation"><a class="anchor" href="#using-a-custom-pygments-installation"></a>49.1.2. Using a custom Pygments installation</h4>
+<div class="paragraph">
+<p>If you already have Pygments installed on your system, you want to use your own fork, or you want to customize how Pygments is configured, you can get Asciidoctor to use a custom version of Pygments instead of the one bundled with the pygments.rb gem.</p>
 </div>
 <div class="paragraph">
-<p>If you already have Pygments installed on your system, and you&#8217;re invoking Asciidoctor via the API, you can instruct Asciidoctor to use your own installation of Pygments by adding the following line before invoking Asciidoctor the first time:</p>
+<p>First, install your own version of Pygments.
+You can do this, for instance, by cloning the upstream Pygments repository:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ hg clone https://bitbucket.org/birkenfeld/pygments-main pygments</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Find the directory that contains the file <em class="path">pygmentize</em> or the <em class="path">Makefile</em>.
+That&#8217;s your Pygments installation path.
+Make note of it.</p>
+</div>
+<div class="paragraph">
+<p>Next, create a script to run <em>before</em> invoking Asciidoctor for the first time.
+Let&#8217;s call it <em class="path">pygments_init.rb</em>.
+Populate the script with the following content:</p>
 </div>
 <div class="listingblock">
+<div class="title">pygments_init.rb</div>
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="ruby"><span class="constant">Pygments</span>.start <span class="string"><span class="delimiter">'</span><span class="content">/path/to/pygments</span><span class="delimiter">'</span></span></code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="ruby">require <span class="string"><span class="delimiter">'</span><span class="content">pygments</span><span class="delimiter">'</span></span>
+
+<span class="comment"># use a custom Pygments installation (directory that contains pygmentize)</span>
+<span class="constant">Pygments</span>.start <span class="string"><span class="delimiter">'</span><span class="content">/path/to/pygments</span><span class="delimiter">'</span></span>
+
+<span class="comment"># example of registering a missing or additional lexer</span>
+<span class="comment">#Pygments::Lexer.create name: 'Turtle', aliases: ['turtle'],</span>
+<span class="comment">#    filenames: ['*.ttl'], mimetypes: ['text/turtle', 'application/x-turtle']</span></code></pre>
 </div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You could enhance this script to read the Pygments installation path from an environment variable (or configuration file).
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>See the <a href="#hl-css">Pygments stylesheet section</a> to learn about the <code>pygments-css</code> attribute.</p>
+<p>Now just require this script before your invoke Asciidoctor the first time.
+When using the <code>asciidoctor</code> command, pass the script using the <code>-r</code> flag:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ asciidoctor -r ./pygments_init.rb document.adoc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When using the Asciidoctor API, require the script using <code>require</code> or <code>require_relative</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="ruby">require <span class="string"><span class="delimiter">'</span><span class="content">asciidoctor</span><span class="delimiter">'</span></span>
+require_relative <span class="string"><span class="delimiter">'</span><span class="content">./pygments_init.rb</span><span class="delimiter">'</span></span>
+
+<span class="constant">Asciidoctor</span>.convert_file <span class="string"><span class="delimiter">'</span><span class="content">document.adoc</span><span class="delimiter">'</span></span>, <span class="key">safe</span>: <span class="symbol">:safe</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now Asciidoctor is using your custom installation of Pygments instead of the one bundled with the pygments.rb gem.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -24887,7 +24948,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-02-08 06:46:26 UTC
+Last updated 2017-02-08 07:39:19 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
