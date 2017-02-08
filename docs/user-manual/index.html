@@ -2079,8 +2079,15 @@ To remove the older version, use the following <code>gem</code> command:</p>
 <p>On Fedora, you can update the package using:</p>
 </div>
 <div class="literalblock">
+<div class="title">On Fedora 21 or earlier</div>
 <div class="content">
 <pre class="nowrap">$ sudo yum update asciidoctor</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">On Fedora 22 or later</div>
+<div class="content">
+<pre class="nowrap">$ sudo dnf update asciidoctor</pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -5338,7 +5345,7 @@ We view AsciiDoc Python&#8217;s behavior of matching unbalanced delimited blocks
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[listing]
-sudo yum install asciidoc</code></pre>
+sudo dnf install asciidoc</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -16121,7 +16128,7 @@ Check that you have a <code>python2</code> (Linux, OSX) or <code>py -2</code> (W
 <div class="listingblock">
 <div class="title">Installing Python and the pygments.rb gem via the CLI (cross platform)</div>
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="console">$ &quot;`\which apt-get || \which yum || \which brew`&quot; install python <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="CodeRay highlight nowrap"><code data-lang="console">$ &quot;`\which apt-get || \which dnf || \which yum || \which brew`&quot; install python <i class="conum" data-value="1"></i><b>(1)</b>
 $ gem install pygments.rb <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
@@ -24880,7 +24887,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-02-05 07:46:36 UTC
+Last updated 2017-02-08 06:46:26 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
