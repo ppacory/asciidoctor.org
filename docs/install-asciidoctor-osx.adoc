@@ -99,7 +99,7 @@ Install Homebrew:
 
 Verify Homebrew is setup correctly:
 
- $ brew doctor
+ $ brew search doctor
 
 Install Git and Ruby:
 
